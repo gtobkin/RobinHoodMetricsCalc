@@ -10,18 +10,61 @@
         		font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
         		color:rgb(0,89,143)
         	}
+        	h2.myh2 {
+        		font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+        		color:rgb(0,89,143)
+        	}
         	p {
-        		font-family:sans-serif
+        		font-family:Verdana, Arial, Helvetica, sans-serif
+        	}
+        	/*
+        	p {
+        		font-family:"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+        	}
+        	*/
+        	p.sampleCharityOverlayText {
+        		text-align:center;
+        		margin:0;
+        		padding:80px 0 0 0;
+        		color:white;
+        		text-shadow:2px 2px #000000;
+        		font-size:48px;
+        		font-family:"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+  				-moz-user-select: -moz-none;
+			    -khtml-user-select: none;
+    			-webkit-user-select: none;
+    			-o-user-select: none;
+    			user-select: none;
+    			cursor:default
+        	}
+        	p.equationLine {
+        		margin:0px;
+        		padding:0px;
+        		font-size:14px;
+        		font-style:italic
+        	}
+        	div.topLevelFrame {
+        		background:#EDEBE4;
+        		max-width:1150px;
+        		padding:10px;
+        		margin:25px;
+        		margin-left:auto;
+        		margin-right:auto
+        	}        	
+        	div.sampleImageContainer {
+        		width:350px;
+        		height:225px
         	}
         </style>
     </head>
     <body>
     	
-    	<!-- Introduce the calculator, let the user pick a sample charity -->
+    	<!-- Intro: introduce the calculator, let the user pick a sample charity -->
     	
-        <div id="intro" style="background:#EDEBE4;max-width:1150px;padding:10px;margin:25px;margin-left:auto;margin-right:auto">
-        	<h1 class="myh1">WELCOME TO THE ROBIN HOOD METRICS CALCULATOR!</h1>
-        	
+        <div id="intro" class="topLevelFrame">
+        	<h1 class="myh1">
+        		WELCOME TO THE ROBIN HOOD METRICS CALCULATOR!
+    		</h1>
         	<p>
         		At Robin Hood, we have a unique approach to fighting poverty. Using our research-driven metrics, we’re
         	able to judge the social impact of a given charity on impoverished New Yorkers and direct funding to where
@@ -33,22 +76,22 @@
         	</p>
         	<table border=0 width="100%" style="border-spacing:25px">
         		<td>
-        			<div style="width:350px;height:225px;background-image:url('img/home_health_aide_scaled.png')">
-        				<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+        			<div class="sampleImageContainer" style="background-image:url('img/home_health_aide_scaled.png')">
+        				<p class="sampleCharityOverlayText">
         					Job Training
         				</p>
         			</div>
         		</td>
         		<td>
-        			<div style="width:350px;height:225px;background-image:url('img/high_school_scaled.jpg')">
-        				<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+        			<div class="sampleImageContainer" style="background-image:url('img/high_school_scaled.jpg')">
+        				<p class="sampleCharityOverlayText">
         					High School
         				</p>
         			</div>
         		</td>
         		<td>
-					<div style="width:350px;height:225px;background-image:url('img/foodpantry_scaled.jpg')">
-    					<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+					<div class="sampleImageContainer" style="background-image:url('img/foodpantry_scaled.jpg')">
+    					<p class="sampleCharityOverlayText">
         					Food Security
         				</p>
         			</div>
@@ -56,10 +99,113 @@
         	</table>
         </div>
         
-        <!-- Display background text on the selected charity -->
+        <!-- Background: display background text on the selected charity -->
         
-        <div id="background" style="background:#EDEBE4;max-width:1150px;padding:10px;margin:25px;margin-left:auto;margin-right:auto">
-        	Hi there!
+        <div id="background" class="topLevelFrame">
+        	<h2 class="myh2">
+        		Manhattan Nursing Aide Career Center
+        	</h2>
+        	<p>
+        		This hypothetical charity is modeled after Robin Hood’s Job Training and Economic Security portfolio.
+        	</p>
+        	<p>
+        		The Manhattan Nursing Aide Career Center (MNACC) provides training and job placement services to New York’s un- and under-employed,
+        		helping them find work as a nursing aide. This career track is a promising route out of poverty for a variety of reasons:
+        		it pays around $9.50 an hour, has reasonable education requirements, and is expected to experience growing demand as Baby Boomers
+        		retire in larger numbers.
+        	</p>
+        	<p>
+        		Another advantage for MNACC is that trainees are primarily women and may not speak English as a primary language, suggesting they
+        		would otherwise be disadvantaged in the job market.
+        	</p>
+			<p>
+				Here, the grant under consideration will pay for additional instructors and support staff, letting the Career Center handle
+				additional trainees.
+        	</p>
         </div>
+        
+        <!-- Impact: enumerate the various benefits of the selected program and show associated formulas + factors -->
+        
+        <div id="impact" class="topLevelFrame">
+        	<h2 class="myh2">
+        		Understanding Impact
+        	</h2>
+        	<p>
+        		Robin Hood identifies the specific ways each charity is improving the well-being of New York’s poor.
+        		We then use our set of metrics research to estimate a value for each of those effects.
+        	</p>
+        	<p>
+        		Here, the Manhattan Nursing Aide Resource Center accomplishes several things:
+        	</p>
+        	<ol>
+        		<li>It provides an immediate wage boost for trainees placed in jobs.</li>
+        		<li>For trainees retained in their new job longer than a year, it also provides a long-term wage boost.</li>
+        	</ol>
+        	<p>
+        		Each of these metrics has an associated formula for estimating its contribution to New Yorkers’ quality of life,
+        		based on Robin Hood’s oversight of its funded grantees as well as wider research. Here they are for the above metrics:
+        	</p>
+        	<ol>
+        		<li style="margin-top:15px">
+        			Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
+    			    <p class="equationLine" style="text-indent:1cm;margin-top:5px">
+     		   			Impact = P.D.V. of the following equation:
+      		 		</p>
+      		 		<p class="equationLine" style="text-indent:2cm">
+     		   			XX participants enter the program
+      		 		</p>
+      		 		<p class="equationLine" style="text-indent:2cm">
+     		   			* XX percent of participants who enter training graduate and remain employed for one year solely because of the program
+      		 		</p>
+      		 		<p class="equationLine" style="text-indent:2cm">
+     		   			* [ $XX average annual post-training earnings
+      		 		</p>
+      		 		<p class="equationLine" style="text-indent:3cm">
+     		   			- $XX average annual pre-training earnings ]
+      		 		</p>
+        		</li>
+        		<li style="margin-top:15px">
+        			Job training and placement: Impact of future wage increases over and above wage of initial placement
+    			    <p class="equationLine" style="text-indent:1cm;margin-top:5px">
+     		   			Impact = P.D.V. of the following equation:
+      		 		</p>
+    			    <p class="equationLine" style="text-indent:2cm;">
+     		   			XX participants enter the program
+      		 		</p>
+    			    <p class="equationLine" style="text-indent:2cm">
+     		   			* XX percent of participants who enter training graduate and remain employed for at least one year solely because of the program
+      		 		</p>
+    			    <p class="equationLine" style="text-indent:2cm">
+     		   			* XX percent of employed participants who receive a promotion/wage boost
+      		 		</p>
+    			    <p class="equationLine" style="text-indent:2cm">
+     		   			* $XX average annual wage increase
+      		 		</p>
+        		</li>
+        	</ol>
+        	<p style="font-style:italic">
+        		Wait, what’s this “P.D.V.” business?
+        	</p>
+        	<p>
+        		P.D.V. stands for “present discounted value,” and is a way for us to account for positive outcomes now being worth more (or, equivalently,
+        		being more expensive) than positive outcomes in the future. If we didn’t correct for this, we’d reach some pretty bizarre conclusions.
+        		For example, it would always make sense to leave our donors’ money invested and earning interest (so we could disburse more the next year),
+        		so we’d leave it invested and never actually spend anything!
+        	</p>
+        	<p>
+        		One way to think about is that the same outcome should cost less in the future than it does today, because we can earn interest on the money
+        		used to pay for it before we need to spend it. If it always costs $1 to provide a meal, then it’s worth spending $1 now to provide a meal now
+        		(since that’s what it costs). However, it’s not worth spending $1 now to provide a meal ten years in the future; that’s too much. Instead, we
+        		could have set $0.82 aside, let it earn 2% interest over ten years, and then spend that resulting $1 on the meal.
+        	</p>
+        </div>
+        
+        <div id="calculator" class="topLevelFrame">
+        	<h2 class="myh2">
+        		Adding It Up
+        	</h2>
+        	
+        </div>
+        
     </body>
 </html>
