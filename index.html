@@ -16,6 +16,9 @@
         </style>
     </head>
     <body>
+    	
+    	<!-- Introduce the calculator, let the user pick a sample charity -->
+    	
         <div id="intro" style="background:#EDEBE4;max-width:1150px;padding:10px;margin:25px;margin-left:auto;margin-right:auto">
         	<h1 class="myh1">WELCOME TO THE ROBIN HOOD METRICS CALCULATOR!</h1>
         	
@@ -24,21 +27,39 @@
         	able to judge the social impact of a given charity on impoverished New Yorkers and direct funding to where
         	it will do the greatest good.
         	</p>
-        	<p style="margin-bottom:50px">
+        	<p>
 	        	This Metrics Calculator will let you experience evaluating the impact of a poverty-fighting program.
     	    	Click on one of the sample hypothetical charities below to get started.
         	</p>
-        	<table border=0 width="100%">
-        		<td style="width:33%">
-        			<img src="img/home_health_aid_scaled.png">
+        	<table border=0 width="100%" style="border-spacing:25px">
+        		<td>
+        			<div style="width:350px;height:225px;background-image:url('img/home_health_aide_scaled.png')">
+        				<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+        					Job Training
+        				</p>
+        			</div>
         		</td>
-        		<td style="width:33%">
-        			<img src="img/high_school_scaled.jpg">
+        		<td>
+        			<div style="width:350px;height:225px;background-image:url('img/high_school_scaled.jpg')">
+        				<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+        					High School
+        				</p>
+        			</div>
         		</td>
-        		<td style="width:33%">
-        			<img src="img/foodpantry_scaled.jpg">
+        		<td>
+					<div style="width:350px;height:225px;background-image:url('img/foodpantry_scaled.jpg')">
+    					<p style="text-align:center;margin:0; padding:80px 0 0 0;font-family:'Franklin Gothic',sans-serif;color:white;text-shadow:2px 2px #000000;font-size:48px">
+        					Food Security
+        				</p>
+        			</div>
         		</td>
         	</table>
+        </div>
+        
+        <!-- Display background text on the selected charity -->
+        
+        <div id="background" style="background:#EDEBE4;max-width:1150px;padding:10px;margin:25px;margin-left:auto;margin-right:auto">
+        	Hi there!
         </div>
     </body>
 </html>
