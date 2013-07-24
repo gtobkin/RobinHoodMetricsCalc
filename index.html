@@ -61,6 +61,17 @@
         		width:350px;
         		height:225px
         	}
+        	input {
+        		float:right;
+        		clear:both
+        	}
+        	input.constant {
+        		disabled:disabled;
+        		background-color:lightgrey
+        	}
+        	li.metricsFactor {
+        		padding-bottom:3px
+        	}
         </style>
     </head>
     <body>
@@ -144,8 +155,8 @@
         		Here, the Manhattan Nursing Aide Resource Center accomplishes several things:
         	</p>
         	<ol>
-        		<li>It provides an immediate wage boost for trainees placed in jobs.</li>
-        		<li>For trainees retained in their new job longer than a year, it also provides a long-term wage boost.</li>
+        		<li class="metricsFactor">It provides an immediate wage boost for trainees placed in jobs.</li>
+        		<li class="metricsFactor">For trainees retained in their new job longer than a year, it also provides a long-term wage boost.</li>
         	</ol>
         	<p>
         		Each of these metrics has an associated formula for estimating its contribution to New Yorkers’ quality of life,
@@ -197,8 +208,8 @@
         		being more expensive) than positive outcomes in the future. If we didn’t correct for this, we’d reach some pretty bizarre conclusions.
         		For example, it would always make sense to leave our donors’ money invested and earning interest (so we could disburse more the next year),
         		so we’d leave it invested and never actually spend anything!
-        	</p>
-        	<p>
+        		<br />
+        		<br />
         		One way to think about is that the same outcome should cost less in the future than it does today, because we can earn interest on the money
         		used to pay for it before we need to spend it. If it always costs $1 to provide a meal, then it’s worth spending $1 now to provide a meal now
         		(since that’s what it costs). However, it’s not worth spending $1 now to provide a meal ten years in the future; that’s too much. Instead, we
@@ -214,8 +225,8 @@
         		Now that we know how Robin Hood would approach evaluating the various ways the Manhattan Nursing Aide Career Center benefits poor New Yorkers,
         		let’s actually get some numbers. Below are fields for each of the factors in our metrics equations above. Fill them in with any values you
         		like and the corresponding social impact will be calculated and shown here.
-        	</p>
-        	<p>
+        		<br />
+        		<br />
         		Some factors are greyed out, with default values already filled in. These factors are usually constant across different grantees. Robin Hood
         		estimates the average annual earnings of high-school graduates with no further education that begin the year unemployed as $11,200, for
         		example, and we treat a two-bedroom apartment as always costing about $16,840 in rent.
@@ -237,7 +248,94 @@
         		</td>
         	</table>
         	
+        	<p style="font-style:italic">
+        		Breakdown:
+        	</p>
+        	<table border=0 width="100%">
+        		<tr>
+        			<td width="75%">
+        				<ol start=1 style="margin:0px">
+        					<li class="metricsFactor">Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)</li>
+        				</ol>
+        			</td>
+        			<td>
+        				$123,456
+        			</td>
+        		</tr>
+        		<tr>
+        			<td width="70%">
+        				<ol start=2 style="margin:0px">
+        					<li class="metricsFactor">Job training and placement: Impact of future wage increases over and above wage of initial placement</li>
+        				</ol>
+        			</td>
+        			<td>
+        				$123,456
+        			</td>
+        		</tr>
+        	</table>
+        	
+        	<p style="font-style:italic">
+        		Metrics factors:
+        	</p>
+        	
+        	<form id="metricsFactors">
+	        	<ol>
+	        		<li class="metricsFactor">
+	        			Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
+						<ul style="margin:0px">
+							<li class="metricsFactor">
+								How many participants enter training?
+								<input class="impact" type="number" id="01a" value=50>
+							</li>
+							<li class="metricsFactor">
+								Of those, what percent graduate and remain employed for at least one year solely because of the program?
+								<input class="impact" type="number" id="01b" value="80%">
+							</li>
+							<li class="metricsFactor">
+								What is the participants’ average annual post-training earnings?
+								<input class="impact" type="number" id="01c" value="$15,000">
+							</li>
+							<li class="metricsFactor">
+								What is the participants’ average annual pre-training earnings?
+								<input class="impact" type="number" id="01d" value="$9,000">
+							</li>
+						</ul>
+	        		</li>
+	        		<li class="metricsFactor">
+	        			Job training and placement: Impact of future wage increases over and above wage of initial placement
+						<ul style="margin:0px">
+							<li class="metricsFactor">
+								How many participants enter training?
+								<input class="impact" type="number" id="02a" value=50>
+							</li>
+							<li class="metricsFactor">
+								Of those, what percent graduate and remain employed for at least one year solely because of the program?
+								<input class="impact" type="number" id="02b" value="80%">
+							</li>
+							<li class="metricsFactor">
+								What is the participants’ average annual post-training earnings?
+								<input class="impact" type="number" id="02c" value="$15,000">
+							</li>
+							<li class="metricsFactor">
+								What is the participants’ average annual pre-training earnings?
+								<input class="impact" type="number" id="02d" value="$9,000">
+							</li>
+						</ul>
+	        		</li>
+	        	</ol>
+	        </form>
         </div>
+	
+		<script>
+			$("input.impact").on('input keyup', function() {
+				var values = new Array();
+				values[0] = parseInt($("#01a").val());
+				values[1] = parseFloat($("#01b").val());
+				values[2] = parseFloat($("#01c").val());
+				values[3] = parseFloat($("#01d").val());
+				$("#benefitDisplay").text("$"+values[0] * (values[1]/100) * (values[2]-values[3]));
+			});
+		</script>
         
     </body>
 </html>
