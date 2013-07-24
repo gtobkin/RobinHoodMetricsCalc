@@ -5,6 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Robin Hood Foundation Metrics Calculator</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+  			$(document).ready(function() {
+  				// Goodness goes here
+	  		});
+		</script>
         <style>
         	h1.myh1 {
         		font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
@@ -209,6 +215,28 @@
         		let’s actually get some numbers. Below are fields for each of the factors in our metrics equations above. Fill them in with any values you
         		like and the corresponding social impact will be calculated and shown here.
         	</p>
+        	<p>
+        		Some factors are greyed out, with default values already filled in. These factors are usually constant across different grantees. Robin Hood
+        		estimates the average annual earnings of high-school graduates with no further education that begin the year unemployed as $11,200, for
+        		example, and we treat a two-bedroom apartment as always costing about $16,840 in rent.
+        	</p>
+        	
+        	<table border=0 width="100%">
+        		<td style="width:70%;text-align:center">
+        			<h3 style="margin-bottom:0px">
+        				Total impact:
+        			</h3>
+        			<h5 style="margin-top:0px">
+        				(improvement in lifelong well-being of the impoverished in New York City)
+        			</h5>
+        		</td>
+        		<td>
+        			<p id="benefitDisplay" style="font-size:36px;text-align:center">
+        				$123,456
+        			</p>
+        		</td>
+        	</table>
+        	
         </div>
         
     </body>
