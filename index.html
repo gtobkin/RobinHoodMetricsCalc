@@ -10,6 +10,19 @@
   			$(document).ready(function() {
   				// Goodness goes here
 	  		});
+	  		function formatMoney(amount, decPlaces, thouSeparator, decSeparator) {
+	  			var n = amount,
+			    decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+			    decSeparator = decSeparator == undefined ? "." : decSeparator,
+			    thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
+			    sign = n < 0 ? "-" : "",
+			    i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+			    j = (j = i.length) > 3 ? j % 3 : 0;
+			    return sign + "$" + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+	  		};
+	  		function parseField(input) {
+				return parseFloat(input.replace(/[^\d.-]/g, ""));
+			};
 		</script>
         <style>
         	h1.myh1 {
@@ -258,7 +271,7 @@
         					<li class="metricsFactor">Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)</li>
         				</ol>
         			</td>
-        			<td>
+        			<td id="metric1">
         				$123,456
         			</td>
         		</tr>
@@ -268,7 +281,7 @@
         					<li class="metricsFactor">Job training and placement: Impact of future wage increases over and above wage of initial placement</li>
         				</ol>
         			</td>
-        			<td>
+        			<td id="metric2">
         				$123,456
         			</td>
         		</tr>
@@ -306,19 +319,19 @@
 						<ul style="margin:0px">
 							<li class="metricsFactor">
 								How many participants enter training?
-								<input class="impact" type="number" id="02a" value=50>
+								<input class="constant impact" type="number" id="02a" value=50>
 							</li>
 							<li class="metricsFactor">
 								Of those, what percent graduate and remain employed for at least one year solely because of the program?
-								<input class="impact" type="number" id="02b" value="80%">
+								<input class="constant impact" type="number" id="02b" value="80%">
 							</li>
 							<li class="metricsFactor">
 								What is the participants’ average annual post-training earnings?
-								<input class="impact" type="number" id="02c" value="$15,000">
+								<input class="constant impact" type="number" id="02c" value="$15,000">
 							</li>
 							<li class="metricsFactor">
 								What is the participants’ average annual pre-training earnings?
-								<input class="impact" type="number" id="02d" value="$9,000">
+								<input class="constant impact" type="number" id="02d" value="$9,000">
 							</li>
 						</ul>
 	        		</li>
@@ -328,12 +341,24 @@
 	
 		<script>
 			$("input.impact").on('input keyup', function() {
+				$("#02a").val($("#01a").val());
+				$("#02b").val($("#01b").val());
+				$("#02c").val($("#01c").val());
+				$("#02d").val($("#01d").val());
 				var values = new Array();
-				values[0] = parseInt($("#01a").val());
-				values[1] = parseFloat($("#01b").val());
-				values[2] = parseFloat($("#01c").val());
-				values[3] = parseFloat($("#01d").val());
-				$("#benefitDisplay").text("$"+values[0] * (values[1]/100) * (values[2]-values[3]));
+				values[0] = parseField($("#01a").val());
+				values[1] = parseField($("#01b").val())/100;
+				values[2] = parseField($("#01c").val());
+				values[3] = parseField($("#01d").val());
+				values[4] = parseField($("#02a").val());
+				values[5] = parseField($("#02b").val())/100;
+				values[6] = parseField($("#02c").val());
+				values[7] = parseField($("#02d").val());
+				var metric1 = values[0] * values[1] * (values[2]-values[3]);
+				var metric2 = values[4] * values[5] * (values[6]-values[7]);
+				$("#metric1").text(formatMoney(metric1));
+				$("#metric2").text(formatMoney(metric2));
+				$("#benefitDisplay").text(formatMoney(metric1 + metric2));
 			});
 		</script>
         
