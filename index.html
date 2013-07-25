@@ -8,7 +8,23 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script>
   			$(document).ready(function() {
-  				// Goodness goes here
+  				$(document).ready(function () {  
+					var top = $('#output').offset().top - parseFloat($('#output').css('marginTop').replace(/auto/, 0));
+					$(window).scroll(function (event) {
+						
+						// what the y position of the scroll is
+						var y = $(this).scrollTop();
+				  
+				    	// whether that's below the form
+				    	if (y >= top - 400) {
+				      		// if so, add the fixed class
+				      		$('#output').addClass('fixed');
+				    	} else {
+				      		// otherwise remove it
+				      		$('#output').removeClass('fixed');
+				    	}
+				  	});
+				});
 	  		});
 	  		function formatMoney(amount, decPlaces, thouSeparator, decSeparator) {
 	  			var n = amount,
@@ -47,11 +63,6 @@
         	p {
         		font-family:Verdana, Arial, Helvetica, sans-serif
         	}
-        	/*
-        	p {
-        		font-family:"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-        	}
-        	*/
         	p.sampleCharityOverlayText {
         		text-align:center;
         		margin:0;
@@ -99,9 +110,52 @@
         	li.metricsFactor {
         		padding-bottom:3px
         	}
+        	#outputWrapper {
+        		left:1530px;
+        		top:1500px;
+        		position:absolute;
+        		margin-left:35px;
+        		width:400px
+        	}
+        	#output {
+        		position:absolute;
+        		top:0;
+        		background-color:rgb(189,231,37)
+        	}
+        	#output.fixed {
+        		position:fixed;
+        		top:400px
+        	}
         </style>
     </head>
     <body>
+    	
+    	<div id="outputWrapper">
+			<div id="output">
+				<table>
+					<tr>
+						<td>
+							Total impact:
+						</td>
+						<td>
+							<p id="benefitDisplay">
+								$500,000
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Benefit/cost ratio:
+						</td>
+						<td>
+							<p id="bcRatioDisplay">
+								20:1
+							</p>
+						</td>
+					</tr>
+				</table>
+		  	</div>
+	  	</div>
     	
     	<!-- Intro: introduce the calculator, let the user pick a sample charity -->
     	
@@ -259,22 +313,6 @@
         		example, and we treat a two-bedroom apartment as always costing about $16,840 in rent.
         	</p>
         	
-        	<table border=0 width="100%">
-        		<td style="width:70%;text-align:center">
-        			<h3 style="margin-bottom:0px">
-        				Total impact:
-        			</h3>
-        			<h5 style="margin-top:0px">
-        				(improvement in lifelong well-being of the impoverished in New York City)
-        			</h5>
-        		</td>
-        		<td>
-        			<p id="benefitDisplay" style="font-size:36px;text-align:center">
-        				$123,456
-        			</p>
-        		</td>
-        	</table>
-        	
         	<p style="font-style:italic">
         		Breakdown:
         	</p>
@@ -353,9 +391,6 @@
 	        </form>
         </div>
 	
-		<script>
-		</script>
-		
 		<div id="cost" class="topLevelFrame">
         	<h2 class="myh2">
         		Adjusting for Cost
@@ -396,14 +431,6 @@
         			</td>
         			<td>
         				<input id="rhFactor" class="bcRatio" type="number" style="float:left">
-        			</td>
-        		</tr>
-        		<tr>
-        			<td>
-			        	<h3>Benefit/cost ratio:</h3>
-        			</td>
-        			<td>
-        				<h3 id="bcRatioDisplay"></h3>
         			</td>
         		</tr>
         	</table>
@@ -455,7 +482,5 @@
 			});
 		</script>
 		
-		
-        
     </body>
 </html>
