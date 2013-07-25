@@ -23,6 +23,17 @@
 	  		function parseField(input) {
 				return parseFloat(input.replace(/[^\d.-]/g, ""));
 			};
+			var benefit;
+			function updateBCRatio() {
+				var funding = parseField($("#funding").val());
+				var rhFactor = parseField($("#rhFactor").val())/100;
+				var bcRatio = benefit * rhFactor / funding;
+				if (isNaN(Math.round(bcRatio))) {
+					$("#bcRatioDisplay").text("0:1");
+				} else {
+					$("#bcRatioDisplay").text(Math.round(bcRatio) + ":1");
+				}
+			};
 		</script>
         <style>
         	h1.myh1 {
@@ -77,6 +88,9 @@
         	input {
         		float:right;
         		clear:both
+        	}
+        	input.bcRatio {
+        		float:left
         	}
         	input.constant {
         		disabled:disabled;
@@ -319,19 +333,19 @@
 						<ul style="margin:0px">
 							<li class="metricsFactor">
 								How many participants enter training?
-								<input class="constant impact" type="number" id="02a" value=50>
+								<input class="constant impact" type="number" id="02a">
 							</li>
 							<li class="metricsFactor">
 								Of those, what percent graduate and remain employed for at least one year solely because of the program?
-								<input class="constant impact" type="number" id="02b" value="80%">
+								<input class="constant impact" type="number" id="02b">
 							</li>
 							<li class="metricsFactor">
 								What is the participants’ average annual post-training earnings?
-								<input class="constant impact" type="number" id="02c" value="$15,000">
+								<input class="constant impact" type="number" id="02c">
 							</li>
 							<li class="metricsFactor">
 								What is the participants’ average annual pre-training earnings?
-								<input class="constant impact" type="number" id="02d" value="$9,000">
+								<input class="constant impact" type="number" id="02d">
 							</li>
 						</ul>
 	        		</li>
@@ -340,7 +354,64 @@
         </div>
 	
 		<script>
-			$("input.impact").on('input keyup', function() {
+		</script>
+		
+		<div id="cost" class="topLevelFrame">
+        	<h2 class="myh2">
+        		Adjusting for Cost
+        	</h2>
+        	<p>
+        		Figuring out the positive impact of a potential grantee is, unfortunately, only half of the equation. When
+        		selecting which programs to fund, we also need to weigh their cost. Our ideal nonprofit does a lot with a little.
+        		<br />
+        		<br />
+        		Another key factor comes into play here to help us only “take credit” for outcomes actually attributable to Robin
+        		Hood. We call it the Robin Hood Factor, and it estimates what proportion of a given grantee’s activities are actually
+        		due to our funding. If a charity uses their $100,000 budget to hand out 100,000 free meals and we gave them $20,000,
+        		we only take credit for 20,000 meals - one-fifth, our share - not the full 100,000.
+        		<br />
+        		<br />
+        		The Robin Hood Factor can still be 100% when we fund less than 100% of the program’s budget, however. This happens
+        		when our funding is necessary for the program to take place or have an impact - qualifying for matching funding or
+        		government grants is a common example.
+        		<br />
+        		<br />
+        		Fill in the Manhattan Nursing Aide Career Center’s estimated funding requirements (from Robin Hood) and the Robin Hood
+        		Factor and we’ll combine them with the estimated benefits from above to determine the ratio of expected, Robin
+        		Hood-attributable benefits to Robin Hood cost. This benefit-cost ratio, the final link in the chain, is a big part
+        		(but only a part) in whether we decide to fund an applicant grantee.
+        	</p>
+        	<table width="60%">
+        		<tr>
+        			<td>
+        				How much funding would the program require?
+        			</td>
+        			<td>
+        				<input id="funding" class="bcRatio" type="number" style="float:left">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				What’s the estimated Robin Hood Factor?
+        			</td>
+        			<td>
+        				<input id="rhFactor" class="bcRatio" type="number" style="float:left">
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+			        	<h3>Benefit/cost ratio:</h3>
+        			</td>
+        			<td>
+        				<h3 id="bcRatioDisplay"></h3>
+        			</td>
+        		</tr>
+        	</table>
+		</div>
+	
+		<script>
+			// Defined in the charity-specific script block as we'll need to redefine updateBenefits for each charity's set of metrics
+			function updateBenefits() {
 				$("#02a").val($("#01a").val());
 				$("#02b").val($("#01b").val());
 				$("#02c").val($("#01c").val());
@@ -350,17 +421,41 @@
 				values[1] = parseField($("#01b").val())/100;
 				values[2] = parseField($("#01c").val());
 				values[3] = parseField($("#01d").val());
-				values[4] = parseField($("#02a").val());
-				values[5] = parseField($("#02b").val())/100;
-				values[6] = parseField($("#02c").val());
-				values[7] = parseField($("#02d").val());
+				values[4] = values[0];
+				values[5] = values[1];
+				values[6] = values[2];
+				values[7] = values[3];
 				var metric1 = values[0] * values[1] * (values[2]-values[3]);
 				var metric2 = values[4] * values[5] * (values[6]-values[7]);
 				$("#metric1").text(formatMoney(metric1));
 				$("#metric2").text(formatMoney(metric2));
-				$("#benefitDisplay").text(formatMoney(metric1 + metric2));
+				benefit = metric1 + metric2;
+				$("#benefitDisplay").text(formatMoney(benefit));
+				updateBCRatio();
+			};
+			
+			// Starting values follow
+			$("#01a").val("50"); // # participants
+			$("#01b").val("80%"); // % graduate, get job, retain 1yr
+			$("#01c").val("$15,000"); // avg post-training salary
+			$("#01d").val("$9,000"); // avg pre-training salary
+			
+			$("#funding").val("$100,000");
+			$("#rhFactor").val("50%");
+			// End of starting values
+			
+			updateBenefits();
+		
+			$("input.impact").on('input keyup', function() {
+				updateBenefits(); // this will also, indirectly, call updateBCRatio() for us
+			});
+			
+			$("input.bcRatio").on('input keyup', function() {
+				updateBCRatio();
 			});
 		</script>
+		
+		
         
     </body>
 </html>
