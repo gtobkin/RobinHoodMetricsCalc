@@ -5,26 +5,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Robin Hood Foundation Metrics Calculator</title>
+        <link rel="stylesheet" href="stylesheets/tipsy.css" type="text/css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.tipsy.js"></script>
 		<script>
-  			$(document).ready(function() {
-  				$(document).ready(function () {  
-					var top = $('#output').offset().top - parseFloat($('#output').css('marginTop').replace(/auto/, 0));
-					$(window).scroll(function (event) {
-						
-						// what the y position of the scroll is
-						var y = $(this).scrollTop();
-				  
-				    	// whether that's below the form
-				    	if (y >= top - 400) {
-				      		// if so, add the fixed class
-				      		$('#output').addClass('fixed');
-				    	} else {
-				      		// otherwise remove it
-				      		$('#output').removeClass('fixed');
-				    	}
-				  	});
-				});
+  			$(document).ready(function() {  
+				var top = $('#output').offset().top - parseFloat($('#output').css('marginTop').replace(/auto/, 0));
+				$(window).scroll(function (event) {
+					
+					// what the y position of the scroll is
+					var y = $(this).scrollTop();
+			  
+			    	// whether that's below the form
+			    	if (y >= top - 400) {
+			      		// if so, add the fixed class
+			      		$('#output').addClass('fixed');
+			    	} else {
+			      		// otherwise remove it
+			      		$('#output').removeClass('fixed');
+			    	}
+			  	});
 	  		});
 	  		function formatMoney(amount, decPlaces, thouSeparator, decSeparator) {
 	  			var n = amount,
@@ -50,6 +50,9 @@
 					$("#bcRatioDisplay").text(Math.round(bcRatio) + ":1");
 				}
 			};
+			$(function() {
+				$('a[rel=tipsy]').tipsy({fade: true, gravity: 'n'});
+			});
 		</script>
         <style>
         	h1.myh1 {
@@ -130,6 +133,21 @@
     </head>
     <body>
     	
+    	<a href="#" id="bob" title="Tipsy tooltip!">Test</a>
+    	<img src="images/tooltip_question_mark.png" id="fred" title="The lady doth protest<br>too much, methinks"/>
+    	
+    	<script>
+			// load tipsy tooltips
+			/*
+			$(function() {
+				$('a[rel=tipsy]').tipsy({fade: true, gravity: 'n'});
+			});*/
+    		$(function() {
+    			$('#bob').tipsy({trigger: 'hover', fade: true, gravity: 'n'});
+    			$('#fred').tipsy({html:true});
+    		});
+    	</script>
+    	
     	<div id="outputWrapper">
 			<div id="output">
 				<table>
@@ -174,21 +192,21 @@
         	</p>
         	<table border=0 width="100%" style="border-spacing:25px">
         		<td>
-        			<div class="sampleImageContainer" style="background-image:url('img/home_health_aide_scaled.png')">
+        			<div class="sampleImageContainer" style="background-image:url('images/home_health_aide.png')">
         				<p class="sampleCharityOverlayText">
         					Job Training
         				</p>
         			</div>
         		</td>
         		<td>
-        			<div class="sampleImageContainer" style="background-image:url('img/high_school_scaled.jpg')">
+        			<div class="sampleImageContainer" style="background-image:url('images/high_school.jpg')">
         				<p class="sampleCharityOverlayText">
         					High School
         				</p>
         			</div>
         		</td>
         		<td>
-					<div class="sampleImageContainer" style="background-image:url('img/foodpantry_scaled.jpg')">
+					<div class="sampleImageContainer" style="background-image:url('images/food_pantry.jpg')">
     					<p class="sampleCharityOverlayText">
         					Food Security
         				</p>
