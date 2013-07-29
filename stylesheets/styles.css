@@ -1,0 +1,80 @@
+h1.myh1 {
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	color:rgb(0,89,143)
+}
+h2.myh2 {
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	color:rgb(0,89,143)
+}
+p {
+	font-family:Verdana, Arial, Helvetica, sans-serif
+}
+p.sampleCharityOverlayText {
+	text-align:center;
+	margin:0;
+	padding:80px 0 0 0;
+	color:white;
+	text-shadow:2px 2px #000000;
+	font-size:48px;
+	font-family:"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	cursor:default
+}
+p.equationLine {
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	font-style:italic
+}
+div.topLevel {
+	background:#EDEBE4;
+	max-width:1080px;
+	padding:10px;
+	margin:25px;
+	margin-left:auto;
+	margin-right:auto
+}        	
+div.sampleImageContainer {
+	/*
+	 * width:350px
+	 * height:225px
+	 */
+	width:auto;
+	height:225px
+}
+input {
+	float:right;
+	clear:both
+}
+input.bcRatio {
+	float:left
+}
+input.constant {
+	disabled:disabled;
+	background-color:lightgrey
+}
+li.metricsFactor {
+	padding-bottom:3px
+}
+#sidebarWrapper {
+	left:1530px;
+	top:1500px;
+	position:absolute;
+	margin-left:35px;
+	width:400px
+}
+#sidebar {
+	position:absolute;
+	top:0;
+	background-color:rgb(189,231,37);
+	-moz-border-radius:15px;
+	border-radius: 15px
+}
+#sidebar.fixed {
+	position:fixed;
+	top:400px
+}
