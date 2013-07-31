@@ -1,13 +1,68 @@
-h1.myh1 {
-	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	color:rgb(0,89,143)
+@font-face {
+	font-family:'AltGotNo2';
+	/*
+	src:url('/../fonts/AlternateGothicNo2.ttf') format('truetype');
+	*/
+	src:url('/../fonts/AlternateGothic2.eot');
+	src:url('/../fonts/AlternateGothic2.eot?#iefix') format('embedded-opentype'),
+	url('/../fonts/AlternateGothic2.woff') format('woff'),
+	url('/../fonts/AlternateGothic2.ttf') format('truetype'),
+	url('/../fonts/AlternateGothic2.svg#AlternateGotNo2') format('svg');
 }
-h2.myh2 {
-	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	color:rgb(0,89,143)
+/* Actual RH site font family for headlines, just for reference:
+ * font-family:AlternateGotNo2,'Arial Narrow','Helvetica Narrow','Ubuntu Condensed',
+ * 'Liberation Sans Narrow',Arial,'Helvetica Neue',Helvetica,Geneva,sans-serif
+ */
+@font-face {
+	font-family:'MyriadPro';
+	src:url('/../fonts/MYRIADPRO-REGULAR.otf');
+	src:url('/../fonts/MYRIADPRO-REGULAR.otf') format('opentype');
 }
-p {
-	font-family:Verdana, Arial, Helvetica, sans-serif
+p.headline {
+	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-size:42px;
+	color:rgb(0,89,143);
+	margin:0.5em auto
+}
+p.tinyHeadline {
+	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-size:18px;
+	color:black
+}
+li.impactCategory {
+	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-size:18px;
+	color:black
+}
+p.impactCategory {
+	margin:20px 0px 5px 0px
+}
+p.impactFormula {
+	margin:5px 0px 5px 1cm
+}
+p.impactFactors {
+	margin:5px 0px 20px 2cm;
+	font-style:italic
+}
+p.body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#969696;
+	margin:1em
+}
+p.tinyBody {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-style:italic;
+	color:#969696
+}
+span.hint {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:rgb(0,89,143);
+	font-style:italic;
+	text-decoration:underline;
+	display:inline-block
 }
 p.sampleCharityOverlayText {
 	text-align:center;
@@ -16,7 +71,7 @@ p.sampleCharityOverlayText {
 	color:white;
 	text-shadow:2px 2px #000000;
 	font-size:48px;
-	font-family:"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	-moz-user-select: -moz-none;
     -khtml-user-select: none;
 	-webkit-user-select: none;
@@ -24,20 +79,33 @@ p.sampleCharityOverlayText {
 	user-select: none;
 	cursor:default
 }
-p.equationLine {
-	margin:0px;
-	padding:0px;
-	font-size:14px;
-	font-style:italic
-}
 div.topLevel {
-	background:#EDEBE4;
-	max-width:1080px;
-	padding:10px;
-	margin:25px;
-	margin-left:auto;
-	margin-right:auto
-}        	
+	max-width:1170px;
+	margin:25px auto
+}
+div.altTopLevel {
+	max-width:1110px;
+	padding:30px;
+	margin:25px auto;
+	background-color:rgb(237,235,228)
+}
+div.thinTopLevel {
+	max-width:870px;
+	margin:25px auto
+}
+div.columnContainer {
+	overflow:auto
+}
+/* Class for each column in a pair of columns */
+div.twoColumn {
+	float:left;
+	width:50%
+}
+/* Class for each column in a trio of columns */
+div.threeColumn {
+	float:left;
+	width:33%
+}
 div.sampleImageContainer {
 	/*
 	 * width:350px
@@ -57,8 +125,57 @@ input.constant {
 	disabled:disabled;
 	background-color:lightgrey
 }
+input.duplicate {
+	disabled:disabled;
+	background-color:lightblue
+}
 li.metricsFactor {
 	padding-bottom:3px
+}
+hr.section {
+	max-width:1170px;
+	margin:auto;
+	color:#969696;
+	border-color:#969696;
+	background-color:#969696;
+	height:1px;
+	border:0px
+}
+hr.subsection {
+	max-width:700px;
+	margin:auto;
+	color:#969696;
+	border-color:#969696;
+	background-color:#969696;
+	height:1px;
+	border:0px
+}
+tr.metricsRow {
+	width:100%;
+	min-height:70px;
+	background-color:rgb(237,235,228);
+	border:0px
+}
+tr.altMetricsRow {
+	width:100%;
+	min-height:70px;
+	background-color:rgb(248,247,243);
+	border:0px
+}
+td.metricsFactor {
+	width:75%;
+	
+}
+td.metricsField {
+	width:25%
+}
+input {
+	margin:5px;
+	height:20px;
+	width:100%;
+	border-radius:5px;
+	border-width:1px;
+	background-color:rgb(251,251,251)
 }
 #sidebarWrapper {
 	left:1530px;

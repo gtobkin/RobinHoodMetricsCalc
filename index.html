@@ -15,6 +15,7 @@
 		<script type="text/javascript" src="javascripts/common.js"></script>
     </head>
     <body>
+    	
     	<!-- sample Tipsy usage
     	<span id="sam" title="Paragraph test!">Hello world</span>
     	<a href="#" id="bob" title="Tipsy tooltip!">Test</a>
@@ -56,14 +57,14 @@
 		  	</div>
 	  	</div>
 	  	
-	  	<div id="intro" class="topLevel" style="background-image:url('images/hero.png');width:1030px;height:365px;margin-left:auto;margin-right:auto;padding:25px">
+	  	<div id="intro" style="background-image:url('images/hero.png');width:1120px;height:400px;margin-left:auto;margin-right:auto;padding:25px">
 	  		<div style="float:right">
-	  			<h1 class="myh1" style="color:white">
+	  			<p class="headline" style="color:white;font-size:36px;margin-top:10px">
 	  				WELCOME TO THE ROBIN
 	  				<br>
 	  				HOOD METRICS CALCULATOR!
-	  			</h1>
-  				<p style="max-width:500px;color:white">
+	  			</p>
+  				<p class="body" style="max-width:500px;color:white">
 	        		At Robin Hood, we have a unique approach to fighting poverty. Using our research-driven metrics, we’re
 	        		able to judge the social impact of a given charity on impoverished New Yorkers and direct funding to where
 	        		it will do the greatest good.
@@ -90,113 +91,220 @@
 		<div id="MNACC" style="margin:0px;padding:0px;display:none">
 			<!-- Background: display background text on selected charity -->
 		
-			<div id="background_MNACC" style="width:1080px;margin:0px auto">
-	        	<h2 class="myh2">
+			<div id="background_MNACC" class="topLevel">
+				
+	        	<p class="headline">
 	        		MANHATTAN NURSING AIDE CAREER CENTER
-	        	</h2>
-	        	<div style="float:left;width:50%">
-		        	<p>
-		        		This hypothetical charity is modeled after Robin Hood’s Job Training and Economic Security portfolio.
-		        		<br>
-		        		<br>
-		        		The Manhattan Nursing Aide Career Center (MNACC) provides training and job placement services to New York’s un- and under-employed,
-		        		helping them find work as a nursing aide. This career track is a promising route out of poverty for a variety of reasons:
-		        		it pays around $9.50 an hour, has reasonable education requirements, and is expected to experience growing demand as Baby Boomers
-		        		retire in larger numbers.
-		        	</p>
-		        </div>
-		        <div style="float:left;width:50%">
-		        	<p>
-		        		Another advantage for MNACC is that trainees are primarily women and may not speak English as a primary language, suggesting they
-	        			would otherwise be disadvantaged in the job market.
-	        			<br>
-	        			<br>
-						Here, the grant under consideration will pay for additional instructors and support staff, letting the Career Center handle
-						additional trainees.
-					</p>
-		        </div>
-	    	</div>
+	        	</p>
+	        	
+	        	<div class="columnContainer">
+		        	<div class="twoColumn">
+			        	<p class="body">
+			        		This hypothetical charity is modeled after Robin Hood’s Job Training and Economic Security portfolio.
+			        		<br>
+			        		<br>
+			        		The Manhattan Nursing Aide Career Center (MNACC) provides training and job placement services to New York’s un- and under-employed,
+			        		helping them find work as a nursing aide. This career track is a promising route out of poverty for a variety of reasons:
+			        		it pays around $9.50 an hour, has reasonable education requirements, and is expected to grow as Baby Boomers
+			        		keep retiring.
+			        	</p>
+			        </div>
+			        <div class="twoColumn">
+			        	<p class="body">
+			        		Another advantage for MNACC is that trainees are primarily women and may not speak English as a primary language, suggesting they
+		        			would otherwise be disadvantaged in the job market.
+		        			<br>
+		        			<br>
+							Here, the grant under consideration will pay for additional instructors and support staff, letting the Career Center handle
+							additional trainees.
+						</p>
+			        </div>
+		    	</div>
+		    </div>
+		    
+	        <hr class="section">
+	    	   
+        	<!-- Impact: enumerate the various benefits of the selected program and show associated formulas + factors -->
 	    	
-	    	<hr style="max-width:1080px">
-	    	
-	    	<div id="impact" style="max-width:1080px;padding:0px;margin:auto">
-	        	<h2 class="myh2">
-	        		Understanding Impact
-	        	</h2>
-	        	<p>
+	    	<div id="impact_MNACC" class="topLevel">
+	        	<p class="headline">
+	        		IMPACT
+	        	</p>
+	        	<p class="body">
 	        		Robin Hood identifies the specific ways each charity is improving the well-being of New York’s poor.
-	        		We then use our set of metrics research to estimate a value for each of those effects.
-	        		<br>
-	        		<br>
-	        		Here, the Manhattan Nursing Aide Resource Center accomplishes several things:
+	        		We then use our set of metrics research to estimate how each contributes to New Yorkers' quality of life.
+	        		Here are the metrics we'd use for MNACC:
 	        	</p>
 	        	<ol>
-	        		<li class="metricsFactor">It provides an immediate wage boost for trainees placed in jobs.</li>
-	        		<li class="metricsFactor">For trainees retained in their new job longer than a year, it also provides a long-term wage boost.</li>
-	        	</ol>
-	        	<p>
-	        		Each of these metrics has an associated formula for estimating its contribution to New Yorkers’ quality of life,
-	        		based on Robin Hood’s oversight of its funded grantees as well as wider research. Here they are for the above metrics:
-	        	</p>
-	        	<ol>
-	        		<hr style="max-width:600px;margin:auto">
-	        		<li style="margin-top:15px">
-	        			Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
-	    			    <p class="equationLine" style="text-indent:1cm;margin-top:5px">
-	     		   			Impact = P.D.V. of the following equation:
+	        		<li class="impactCategory">
+	        			<p class="tinyHeadline impactCategory">
+	        				Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
+	        			</p>
+	    			    <p class="tinyHeadline impactFormula">
+	     		   			Impact = P.D.V. of ( A * B% * [ $C - $D ] )
 	      		 		</p>
-	      		 		<p class="equationLine" style="text-indent:2cm">
-	     		   			XX participants enter the program
-	      		 		</p>
-	      		 		<p class="equationLine" style="text-indent:2cm">
-	     		   			* XX percent of participants who enter training graduate and remain employed for one year solely because of the program
-	      		 		</p>
-	      		 		<p class="equationLine" style="text-indent:2cm">
-	     		   			* [ $XX average annual post-training earnings
-	      		 		</p>
-	      		 		<p class="equationLine" style="text-indent:3cm">
-	     		   			- $XX average annual pre-training earnings ]
+	      		 		<p class="tinyBody impactFactors">
+	     		   			A: number of program participants
+	     		   			<br>
+	     		   			B: percent of participants that graduate the program and remain employed for one year, solely because of the program
+	     		   			<br>
+	     		   			C: average annual post-training earnings
+	     		   			<br>
+	     		   			D: average annual pre-training earnings
 	      		 		</p>
 	        		</li>
-	        		<br>
-	        		<hr style="max-width:600px;margin:auto">
-	        		<li style="margin-top:15px">
-	        			Job training and placement: Impact of future wage increases over and above wage of initial placement
-	    			    <p class="equationLine" style="text-indent:1cm;margin-top:5px">
-	     		   			Impact = P.D.V. of the following equation:
+	        		<hr class="subsection">
+	        		<li class="impactCategory">
+	        			<p class="tinyHeadline impactCategory">
+	        				Job training and placement: Impact of future wage increases over and above wage of initial placement
+	        			</p>
+	    			    <p class="tinyHeadline impactFormula">
+	     		   			Impact = P.D.V. of ( A * B% * [ $C - $D ] )
 	      		 		</p>
-	    			    <p class="equationLine" style="text-indent:2cm;">
-	     		   			XX participants enter the program
-	      		 		</p>
-	    			    <p class="equationLine" style="text-indent:2cm">
-	     		   			* XX percent of participants who enter training graduate and remain employed for at least one year solely because of the program
-	      		 		</p>
-	    			    <p class="equationLine" style="text-indent:2cm">
-	     		   			* XX percent of employed participants who receive a promotion/wage boost
-	      		 		</p>
-	    			    <p class="equationLine" style="text-indent:2cm">
-	     		   			* $XX average annual wage increase
+	    			    <p class="tinyBody impactFactors">
+	     		   			A: number of program participants
+	     		   			<br>
+	     		   			B: percent of participants that graduate the program and remain employed for one year, solely because of the program
+	     		   			<br>
+	     		   			C: average annual post-training earnings
+	     		   			<br>
+	     		   			D: average annual pre-training earnings
 	      		 		</p>
 	        		</li>
-	        		<br>
-	        		<hr style="max-width:600px;margin:auto">
 	        	</ol>
-	        	<p style="font-style:italic">
-	        		Wait, what’s this “P.D.V.” business?
-	        	</p>
-	        	<p>
-	        		P.D.V. stands for “present discounted value,” and is a way for us to account for positive outcomes now being worth more (or, equivalently,
-	        		being more expensive) than positive outcomes in the future. If we didn’t correct for this, we’d reach some pretty bizarre conclusions.
-	        		For example, it would always make sense to leave our donors’ money invested and earning interest (so we could disburse more the next year),
-	        		so we’d leave it invested and never actually spend anything!
-	        		<br />
-	        		<br />
-	        		One way to think about is that the same outcome should cost less in the future than it does today, because we can earn interest on the money
-	        		used to pay for it before we need to spend it. If it always costs $1 to provide a meal, then it’s worth spending $1 now to provide a meal now
-	        		(since that’s what it costs). However, it’s not worth spending $1 now to provide a meal ten years in the future; that’s too much. Instead, we
-	        		could have set $0.82 aside, let it earn 2% interest over ten years, and then spend that resulting $1 on the meal.
-	        	</p>
+	        	<span id="pdvHint" class="hint" title=
+	        		"P.D.V. stands for &quotpresent discounted value.&quot It's a way to correct for how money now is worth more than money
+	        		in the future.">
+	        		What's a "P.D.V."?
+	        	</span>
 	        </div>
+	        
+	        <hr class="section">
+	        
+	        <div id="calc_intro_MNACC" class="altTopLevel">
+	        	<p class="headline">
+	        		ADDING IT UP
+	        	</p>
+	        	<p class="body">
+	        		Let’s actually get some numbers. Below are all of the factors in our metrics equations. Fill them in with any values you
+	        		like and the social impact will be calculated and shown in the sidebar.
+	        	</p>
+	        	<span id="duplicateFactorHint" class="hint" style="margin-bottom:2em" title=
+	        		"These are duplicates. The same factor shows up in multiple metrics.
+	        		<br>
+	        		<br>
+	        		The first copy is editable - change that and we'll update the rest for you.">
+	        		Why do some factors have a blue background? I can't edit them.
+	        	</span>
+	        </div>
+	        
+	        <div id="calc_factors_MNACC" class="thinTopLevel">
+	        	<p class="headline">
+	        		METRICS FACTORS
+	        	</p>
+	        	
+	        	<ol>
+	        		<li class="impactCategory">
+	        			<p class="impactCategory">
+	        				Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
+	        			</p>
+	        			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
+	        				<tr class="metricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							How many participants enter training?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input type="number" id="MNACC_01_01">
+	        					</td>
+	        				</tr>
+	        				<tr class="altMetricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What percent graduate and remain employed for at least a year solely because of the program?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input type="number" id="MNACC_01_02">
+	        					</td>
+	        				</tr>
+	        				<tr class="metricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What is the participants’ average annual post-training earnings?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input type="number" id="MNACC_01_03">
+	        					</td>
+	        				</tr>
+	        				<tr class="altMetricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What is the participants’ average annual pre-training earnings? 
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input type="number" id="MNACC_01_04">
+	        					</td>
+	        				</tr>
+	        			</table>
+	        		</li>
+	        		<li class="impactCategory">
+	        			<p class="impactCategory">
+	        				Job training and placement: Impact of future wage increases over and above wage of initial placement
+	        			</p>
+	        			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
+	        				<tr class="metricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							How many participants enter training?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input class="duplicate" type="number" id="MNACC_02_01">
+	        					</td>
+	        				</tr>
+	        				<tr class="altMetricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What percent graduate and remain employed for at least a year solely because of the program?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input class="duplicate" type="number" id="MNACC_02_02">
+	        					</td>
+	        				</tr>
+	        				<tr class="metricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What is the participants’ average annual post-training earnings?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input class="duplicate" type="number" id="MNACC_02_03">
+	        					</td>
+	        				</tr>
+	        				<tr class="altMetricsRow">
+	        					<td class="metricsFactor">
+	        						<p class="body">
+	        							What is the participants’ average annual pre-training earnings? 
+	        						</p>
+	        					</td>
+	        					<td class="metricsField">
+	        						<input class="duplicate" type="number" id="MNACC_02_04">
+	        					</td>
+	        				</tr>
+	        			</table>
+	        			
+	        		</li>
+	        	</ol>
+	        	
+	        	<!-- Need to reinsert a "Benefit Breakdown" section. -->
+	        </div>
+	        
+	        <hr class="section">
 	    	
 		</div>
  
@@ -204,105 +312,10 @@
     		$('#img_MNACC').click(function() {
     			$('#MNACC').toggle();
     		});
+    		$('#pdvHint').tipsy({html:true, gravity:'w'});
+    		$('#duplicateFactorHint').tipsy({html:true, gravity:'w'});
     	</script>
-   
-        <!-- Impact: enumerate the various benefits of the selected program and show associated formulas + factors -->
         
-        
-        
-        <div id="calculator" class="topLevel">
-        	<h2 class="myh2">
-        		Adding It Up
-        	</h2>
-        	<p>
-        		Now that we know how Robin Hood would approach evaluating the various ways the Manhattan Nursing Aide Career Center benefits poor New Yorkers,
-        		let’s actually get some numbers. Below are fields for each of the factors in our metrics equations above. Fill them in with any values you
-        		like and the corresponding social impact will be calculated and shown here.
-        		<br />
-        		<br />
-        		Some factors are greyed out, with default values already filled in. These factors are usually constant across different grantees. Robin Hood
-        		estimates the average annual earnings of high-school graduates with no further education that begin the year unemployed as $11,200, for
-        		example, and we treat a two-bedroom apartment as always costing about $16,840 in rent.
-        	</p>
-        	
-        	<p style="font-style:italic">
-        		Breakdown:
-        	</p>
-        	<table border=0 width="100%">
-        		<tr>
-        			<td width="75%">
-        				<ol start=1 style="margin:0px">
-        					<li class="metricsFactor">Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)</li>
-        				</ol>
-        			</td>
-        			<td id="metric1">
-        				$123,456
-        			</td>
-        		</tr>
-        		<tr>
-        			<td width="70%">
-        				<ol start=2 style="margin:0px">
-        					<li class="metricsFactor">Job training and placement: Impact of future wage increases over and above wage of initial placement</li>
-        				</ol>
-        			</td>
-        			<td id="metric2">
-        				$123,456
-        			</td>
-        		</tr>
-        	</table>
-        	
-        	<p style="font-style:italic">
-        		Metrics factors:
-        	</p>
-        	
-        	<form id="metricsFactors">
-	        	<ol>
-	        		<li class="metricsFactor">
-	        			Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
-						<ul style="margin:0px">
-							<li class="metricsFactor">
-								How many participants enter training?
-								<input class="impact" type="number" id="01a" value=50>
-							</li>
-							<li class="metricsFactor">
-								Of those, what percent graduate and remain employed for at least one year solely because of the program?
-								<input class="impact" type="number" id="01b" value="80%">
-							</li>
-							<li class="metricsFactor">
-								What is the participants’ average annual post-training earnings?
-								<input class="impact" type="number" id="01c" value="$15,000">
-							</li>
-							<li class="metricsFactor">
-								What is the participants’ average annual pre-training earnings?
-								<input class="impact" type="number" id="01d" value="$9,000">
-							</li>
-						</ul>
-	        		</li>
-	        		<li class="metricsFactor">
-	        			Job training and placement: Impact of future wage increases over and above wage of initial placement
-						<ul style="margin:0px">
-							<li class="metricsFactor">
-								How many participants enter training?
-								<input class="constant impact" type="number" id="02a">
-							</li>
-							<li class="metricsFactor">
-								Of those, what percent graduate and remain employed for at least one year solely because of the program?
-								<input class="constant impact" type="number" id="02b">
-							</li>
-							<li class="metricsFactor">
-								What is the participants’ average annual post-training earnings?
-								<input class="constant impact" type="number" id="02c">
-							</li>
-							<li class="metricsFactor">
-								What is the participants’ average annual pre-training earnings?
-								<input class="constant impact" type="number" id="02d">
-							</li>
-						</ul>
-	        		</li>
-	        	</ol>
-	        </form>
-        </div>
-	
 		<div id="cost" class="topLevel">
         	<h2 class="myh2">
         		Adjusting for Cost
