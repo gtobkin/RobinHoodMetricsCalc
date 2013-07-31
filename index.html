@@ -4,58 +4,22 @@
 	<!-- IT BEGINS! -->
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Robin Hood Foundation Metrics Calculator</title>
+        <title>Metrics Calculator | The Robin Hood Foundation</title>
+        <link rel="shortcut icon" href="http://static.robinhood.org/sites/all/themes/robinhood/favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" href="stylesheets/styles.css" type="text/css">
         <link rel="stylesheet" href="stylesheets/tipsy.css" type="text/css">
-        <!-- Load JQuery... -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <!-- ...and TipsyTooltips -->
-		<script type="text/javascript" src="javascripts/jquery.tipsy.js"></script>
+		<link rel="stylesheet" href="stylesheets/jquery-ui.css" />
+  		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+        <!-- Load JQuery, TipsyTooltips, and JQuery's accordion UI widget -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+		<script src="javascripts/jquery.tipsy.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
 		<!-- common.js contains functionality needed across all charities, e.g. input field parsing and currency formatting -->
-		<script type="text/javascript" src="javascripts/common.js"></script>
+		<script src="javascripts/common.js" type="text/javascript"></script>
     </head>
     <body>
     	
-    	<!-- sample Tipsy usage
-    	<span id="sam" title="Paragraph test!">Hello world</span>
-    	<a href="#" id="bob" title="Tipsy tooltip!">Test</a>
-    	<img src="images/tooltip_question_mark.png" id="fred" title="The lady doth protest<br>too much, methinks"/>
-    	
-    	<script>
-    		$(function() {
-    			$('#bob').tipsy({trigger: 'hover', fade: true, gravity: 'n'});
-    			$('#fred').tipsy({html:true});
-    			$('#sam').tipsy();
-    		});
-    	</script> -->
-    	
-    	<!-- Sidebar used to display program benefit and benefit:cost ratio -->
-    	<div id="sidebarWrapper">
-			<div id="sidebar">
-				<table>
-					<tr>
-						<td>
-							Total impact:
-						</td>
-						<td>
-							<p id="benefitDisplay">
-								$500,000
-							</p>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Benefit/cost ratio:
-						</td>
-						<td>
-							<p id="bcRatioDisplay">
-								20:1
-							</p>
-						</td>
-					</tr>
-				</table>
-		  	</div>
-	  	</div>
+    	<img src="images/header.png" style="margin:auto;display:block">
 	  	
 	  	<div id="intro" style="background-image:url('images/hero.png');width:1120px;height:400px;margin-left:auto;margin-right:auto;padding:25px">
 	  		<div style="float:right">
@@ -88,10 +52,212 @@
 	  		</td>
 	  	</table>
 
-		<div id="MNACC" style="margin:0px;padding:0px;display:none">
+		<div id="MNACC" style="margin:0px;padding:0px">
+    	
+	    	<div id="benefit_MNACC" style="max-width:1170px;margin:auto;background-color:rgb(186,228,35)">
+	    		<p style="text-align:center">
+	    			Here's a hypothetical charity representative of our Job Training portfolio.
+	    			<br>
+	    			For every $1 in funding, it returns $20 in well-being for New York's poor.
+	    		</p>
+	    		<table border=0 style="width:100%">
+	    			<tr>
+	    				<td style="width:35%">
+	    					Benefit:
+	    				</td>
+	    				<td style="width:15%">
+	    					$123,456
+	    				</td>
+	    				<td style="width:35%">
+	    					Benefit/cost:
+	    				</td>
+	    				<td style="width:15%">
+	    					20:1
+	    				</td>
+	    			</tr>
+	    		</table>
+	    		Breakdown:
+	    		<table border=0 style="width:100%">
+	    			<tr>
+	    				<td style="width:35%">
+	    					Metric 1:
+	    				</td>
+	    				<td style="width:15%">
+	    					$123,456
+	    				</td>
+	    				<td style="width:35%">
+	    					Metric 2:
+	    				</td>
+	    				<td style="width:15%">
+	    					$123,456
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td style="width:35%">
+	    					Metric 3:
+	    				</td>
+	    				<td style="width:15%">
+	    					$123,456
+	    				</td>
+	    				<td style="width:35%">
+	    					Metric 4:
+	    				</td>
+	    				<td style="width:15%">
+	    					$123,456
+	    				</td>
+	    			</tr>
+	    		</table>
+	    	</div>
+		    
+		    <!-- TODO: Re-add breakdown per metric, now as parenthetical text in accordion headers -->
+		    
+	    	<div id="metricsAccordion" style="margin:auto;max-width:1170px">
+	    		<h3>
+	    			1. Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
+    			</h3>
+	    		<div>
+	    			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
+        				<tr class="metricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							How many participants enter training?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="number" id="MNACC_01_01">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What percent graduate and remain employed for at least a year solely because of the program?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="number" id="MNACC_01_02">
+        					</td>
+        				</tr>
+        				<tr class="metricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What is the participants’ average annual post-training earnings?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="number" id="MNACC_01_03">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What is the participants’ average annual pre-training earnings? 
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="number" id="MNACC_01_04">
+        					</td>
+        				</tr>
+        			</table>
+	    		</div>
+	    		<h3>
+	    			2. Job training and placement: Impact of future wage increases over and above wage of initial placement
+	    		</h3>
+	    		<div>
+	    			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
+        				<tr class="metricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							How many participants enter training?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input class="duplicate" type="number" id="MNACC_02_01">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What percent graduate and remain employed for at least a year solely because of the program?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input class="duplicate" type="number" id="MNACC_02_02">
+        					</td>
+        				</tr>
+        				<tr class="metricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What is the participants’ average annual post-training earnings?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input class="duplicate" type="number" id="MNACC_02_03">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							What is the participants’ average annual pre-training earnings? 
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input class="duplicate" type="number" id="MNACC_02_04">
+        					</td>
+        				</tr>
+        			</table>
+	    		</div>
+	    		<h3>
+	    			Cost
+	    		</h3>
+	    		<div>
+	    			<tr>
+	        			<td>
+	        				How much funding would the program require?
+	        			</td>
+	        			<td>
+	        				<input id="funding" class="bcRatio" type="number" style="float:left">
+	        			</td>
+	        		</tr>
+	        		<tr>
+	        			<td>
+	        				What’s the estimated Robin Hood Factor?
+	        			</td>
+	        			<td>
+	        				<input id="rhFactor" class="bcRatio" type="number" style="float:left">
+	        			</td>
+	        		</tr>
+	    		</div>
+	    	</div>
+	    	<div id="metricsAccordionFollowup" class="topLevel">
+		    	<p class="hint">
+	    			Reset to defaults
+	    		</p>
+	    		<p>
+	        		<span id="duplicateFactorHint" class="hint" title=
+	        		"These are duplicates. The same factor shows up in multiple metrics.
+	        		<br>
+	        		<br>
+	        		The first copy is editable - change that and we'll update the rest for you.">
+	        			Why do some factors have a blue background? I can't edit them.
+		        	</span>
+		        	<br>
+		        	<span id="rhFactorHint" class="hint" style="margin-bottom:2em" title=
+		        		"The Robin Hood Factor is the percent of the nonprofit's impact that we take credit for. This is often - but not always
+		        		- our proportional funding of the nonprofit's budget.">
+		        		What's the "Robin Hood Factor"?
+		        	</span>
+	    		</p>
+	    	</div>
+ 
+			<script>
+				$("#metricsAccordion").accordion({heightStyle:"content"});
+			</script>
+			
+			<hr class="section">
+	    		
 			<!-- Background: display background text on selected charity -->
 		
-			<div id="background_MNACC" class="topLevel">
+			<div id="background_MNACC" class="altTopLevel">
 				
 	        	<p class="headline">
 	        		MANHATTAN NURSING AIDE CAREER CENTER
@@ -181,185 +347,96 @@
 	        
 	        <hr class="section">
 	        
-	        <div id="calc_intro_MNACC" class="altTopLevel">
+	        <div id="research_MNACC" class="altTopLevel">
 	        	<p class="headline">
-	        		ADDING IT UP
+	        		RESEARCH
 	        	</p>
-	        	<p class="body">
-	        		Let’s actually get some numbers. Below are all of the factors in our metrics equations. Fill them in with any values you
-	        		like and the social impact will be calculated and shown in the sidebar.
-	        	</p>
-	        	<span id="duplicateFactorHint" class="hint" style="margin-bottom:2em" title=
-	        		"These are duplicates. The same factor shows up in multiple metrics.
-	        		<br>
-	        		<br>
-	        		The first copy is editable - change that and we'll update the rest for you.">
-	        		Why do some factors have a blue background? I can't edit them.
-	        	</span>
+	        	<div class="columnContainer">
+		        	<div class="twoColumn">
+			        	<p class="body">
+			        		All of these numbers have to come from somewhere. At Robin Hood our staff use the most recent social science research
+			        		to better understand the true impact of our interventions, like the lifelong effects of ensuring a student graduates from
+			        		school, or the importance of finding and stopping domestic abuse early. This knowledge then informs the values that go into
+			        		our metrics, to ensure we’re always making as accurate decisions as possible.
+			        	</p>
+			        </div>
+			        <div class="twoColumn">
+			        	<p class="body">
+			        		Our sources for the metrics relevant to the Manhattan Nursing Aide Career Center (and associated research, where appropriate)
+			        		are below. For a better understanding of how Robin Hood makes the social impact estimates it does, take a look. If you think
+			        		you can help us improve with better approaches, insights, or research, we’d love to hear from you.
+						</p>
+			        </div>
+		    	</div>
 	        </div>
-	        
-	        <div id="calc_factors_MNACC" class="thinTopLevel">
-	        	<p class="headline">
-	        		METRICS FACTORS
-	        	</p>
-	        	
+	        <div id="researchFollowup_MNACC" class="topLevel">
 	        	<ol>
 	        		<li class="impactCategory">
-	        			<p class="impactCategory">
+	        			<p class="tinyHeadline impactCategory">
 	        				Job training and placement: Impact of initial wage for full-time employees (grantee reported pre-training wage data)
 	        			</p>
-	        			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
-	        				<tr class="metricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							How many participants enter training?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input type="number" id="MNACC_01_01">
-	        					</td>
-	        				</tr>
-	        				<tr class="altMetricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What percent graduate and remain employed for at least a year solely because of the program?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input type="number" id="MNACC_01_02">
-	        					</td>
-	        				</tr>
-	        				<tr class="metricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What is the participants’ average annual post-training earnings?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input type="number" id="MNACC_01_03">
-	        					</td>
-	        				</tr>
-	        				<tr class="altMetricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What is the participants’ average annual pre-training earnings? 
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input type="number" id="MNACC_01_04">
-	        					</td>
-	        				</tr>
-	        			</table>
+	    			    <p class="tinyHeadline">
+	     		   			Factors:
+	      		 		</p>
+	      		 		<p class="tinyBody">
+	     		   			number of program participants
+	     		   			<br>
+	     		   			percent of participants that graduate the program and remain employed for one year, solely because of the program
+	     		   			<br>
+	     		   			average annual post-training earnings
+	     		   			<br>
+	     		   			average annual pre-training earnings
+	      		 		</p>
+	      		 		<p class="body">
+	      		 			The number of participants who enter training, and the percent that graduate and remain employed for one year is
+	      		 			based on the actual number reported by our grantee.
+	      		 			<br>
+	      		 			<br>
+	      		 			We base the estimate of pre- and post-training earnings due to job training and placement on reports to Robin Hood
+	      		 			from its grantees.  
+	      		 		</p>
 	        		</li>
+	        		<hr class="subsection">
 	        		<li class="impactCategory">
-	        			<p class="impactCategory">
+	        			<p class="tinyHeadline">
 	        				Job training and placement: Impact of future wage increases over and above wage of initial placement
 	        			</p>
-	        			<table border=0 style="table-layout:fixed;width:100%;border-spacing:0px">
-	        				<tr class="metricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							How many participants enter training?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input class="duplicate" type="number" id="MNACC_02_01">
-	        					</td>
-	        				</tr>
-	        				<tr class="altMetricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What percent graduate and remain employed for at least a year solely because of the program?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input class="duplicate" type="number" id="MNACC_02_02">
-	        					</td>
-	        				</tr>
-	        				<tr class="metricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What is the participants’ average annual post-training earnings?
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input class="duplicate" type="number" id="MNACC_02_03">
-	        					</td>
-	        				</tr>
-	        				<tr class="altMetricsRow">
-	        					<td class="metricsFactor">
-	        						<p class="body">
-	        							What is the participants’ average annual pre-training earnings? 
-	        						</p>
-	        					</td>
-	        					<td class="metricsField">
-	        						<input class="duplicate" type="number" id="MNACC_02_04">
-	        					</td>
-	        				</tr>
-	        			</table>
-	        			
+	    			    <p class="tinyHeadline">
+	     		   			Factors:
+	      		 		</p>
+	    			    <p class="tinyBody">
+	     		   			number of program participants
+	     		   			<br>
+	     		   			percent of participants that graduate the program and remain employed for one year, solely because of the program
+	     		   			<br>
+	     		   			average annual post-training earnings
+	     		   			<br>
+	     		   			average annual pre-training earnings
+	      		 		</p>
+	      		 		<p class="body">
+	      		 			The number of participants who enter training, and the percent that graduate and remain employed for one year is
+	      		 			based on the actual number reported by our grantee.
+	      		 			<br>
+	      		 			<br>
+	      		 			We base the estimate of pre- and post-training earnings due to job training and placement on reports to Robin Hood
+	      		 			from its grantees.  
+	      		 		</p>
 	        		</li>
 	        	</ol>
-	        	
-	        	<!-- Need to reinsert a "Benefit Breakdown" section. -->
 	        </div>
 	        
-	        <hr class="section">
-	    	
 		</div>
+		
+		<img src="images/footer.png" style="margin:auto;display:block">
  
     	<script>
     		$('#img_MNACC').click(function() {
-    			$('#MNACC').toggle();
+    			$('#MNACC').slideToggle();
     		});
     		$('#pdvHint').tipsy({html:true, gravity:'w'});
+    		$('#rhFactorHint').tipsy({html:true, gravity:'w'});
     		$('#duplicateFactorHint').tipsy({html:true, gravity:'w'});
     	</script>
-        
-		<div id="cost" class="topLevel">
-        	<h2 class="myh2">
-        		Adjusting for Cost
-        	</h2>
-        	<p>
-        		Figuring out the positive impact of a potential grantee is, unfortunately, only half of the equation. When
-        		selecting which programs to fund, we also need to weigh their cost. Our ideal nonprofit does a lot with a little.
-        		<br />
-        		<br />
-        		Another key factor comes into play here to help us only “take credit” for outcomes actually attributable to Robin
-        		Hood. We call it the Robin Hood Factor, and it estimates what proportion of a given grantee’s activities are actually
-        		due to our funding. If a charity uses their $100,000 budget to hand out 100,000 free meals and we gave them $20,000,
-        		we only take credit for 20,000 meals - one-fifth, our share - not the full 100,000.
-        		<br />
-        		<br />
-        		The Robin Hood Factor can still be 100% when we fund less than 100% of the program’s budget, however. This happens
-        		when our funding is necessary for the program to take place or have an impact - qualifying for matching funding or
-        		government grants is a common example.
-        		<br />
-        		<br />
-        		Fill in the Manhattan Nursing Aide Career Center’s estimated funding requirements (from Robin Hood) and the Robin Hood
-        		Factor and we’ll combine them with the estimated benefits from above to determine the ratio of expected, Robin
-        		Hood-attributable benefits to Robin Hood cost. This benefit-cost ratio, the final link in the chain, is a big part
-        		(but only a part) in whether we decide to fund an applicant grantee.
-        	</p>
-        	<table width="60%">
-        		<tr>
-        			<td>
-        				How much funding would the program require?
-        			</td>
-        			<td>
-        				<input id="funding" class="bcRatio" type="number" style="float:left">
-        			</td>
-        		</tr>
-        		<tr>
-        			<td>
-        				What’s the estimated Robin Hood Factor?
-        			</td>
-        			<td>
-        				<input id="rhFactor" class="bcRatio" type="number" style="float:left">
-        			</td>
-        		</tr>
-        	</table>
-		</div>
 	
 		<script type="text/javascript" src="javascripts/mnacc.js"></script>
 		
