@@ -1,36 +1,36 @@
 @font-face {
 	font-family:'AltGotNo2';
+	src:url('../fonts/AlternateGothic2.ttf') format('truetype');
 	/*
 	src:url('/../fonts/AlternateGothicNo2.ttf') format('truetype');
-	*/
 	src:url('/../fonts/AlternateGothic2.eot');
 	src:url('/../fonts/AlternateGothic2.eot?#iefix') format('embedded-opentype'),
 	url('/../fonts/AlternateGothic2.woff') format('woff'),
 	url('/../fonts/AlternateGothic2.ttf') format('truetype'),
 	url('/../fonts/AlternateGothic2.svg#AlternateGotNo2') format('svg');
+	*/
+}
+@font-face {
+	font-family:"MyriadPro";
+	src:url("../fonts/MyriadPro-Regular.otf") format('opentype');
 }
 /* Actual RH site font family for headlines, just for reference:
  * font-family:AlternateGotNo2,'Arial Narrow','Helvetica Narrow','Ubuntu Condensed',
  * 'Liberation Sans Narrow',Arial,'Helvetica Neue',Helvetica,Geneva,sans-serif
  */
-@font-face {
-	font-family:'MyriadPro';
-	src:url('/../fonts/MYRIADPRO-REGULAR.otf');
-	src:url('/../fonts/MYRIADPRO-REGULAR.otf') format('opentype');
-}
 p.headline {
-	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	font-size:42px;
 	color:rgb(0,89,143);
 	margin:0.5em auto
 }
 p.tinyHeadline {
-	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	font-size:18px;
 	color:black
 }
 li.impactCategory {
-	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	font-size:18px;
 	color:black
 }
@@ -45,19 +45,24 @@ p.impactFactors {
 	font-style:italic
 }
 p.body {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
 	font-size:16px;
 	color:#969696;
 	margin:1em
 }
 p.tinyBody {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
 	font-size:14px;
 	font-style:italic;
 	color:#969696
 }
+span.headline {
+	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-size:42px;
+	color:rgb(0,89,143);
+}
 span.hint {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
 	font-size:16px;
 	color:rgb(0,89,143);
 	font-style:italic;
@@ -71,7 +76,7 @@ p.sampleCharityOverlayText {
 	color:white;
 	text-shadow:2px 2px #000000;
 	font-size:48px;
-	font-family:'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	-moz-user-select: -moz-none;
     -khtml-user-select: none;
 	-webkit-user-select: none;
