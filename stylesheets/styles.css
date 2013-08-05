@@ -25,23 +25,15 @@ p.headline {
 	margin:0.5em auto
 }
 p.tinyHeadline {
-	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
 	font-size:18px;
 	color:black
-}
-li.impactCategory {
-	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
-	font-size:18px;
-	color:black
-}
-p.impactCategory {
-	margin:20px 0px 5px 0px
 }
 p.impactFormula {
 	margin:5px 0px 5px 1cm
 }
 p.impactFactors {
-	margin:5px 0px 20px 2cm;
+	margin:5px 0px 20px 1cm;
 	font-style:italic
 }
 p.body {
@@ -65,24 +57,28 @@ span.hint {
 	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
 	font-size:16px;
 	color:rgb(0,89,143);
-	font-style:italic;
 	text-decoration:underline;
 	display:inline-block
 }
-p.sampleCharityOverlayText {
-	text-align:center;
-	margin:0;
-	padding:80px 0 0 0;
-	color:white;
-	text-shadow:2px 2px #000000;
-	font-size:48px;
-	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
-	-moz-user-select: -moz-none;
-    -khtml-user-select: none;
-	-webkit-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-	cursor:default
+span.metricsSubtotal {
+	color:rgb(0,89,143);
+}
+span.metricTitle {
+	font-style:italic;
+	font-size:16px;
+}
+span.body {
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#969696;
+}
+span.quicknav {
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:blue;
+	text-decoration:underline;
+	display:inline-block;
+	cursor:pointer;
 }
 div.topLevel {
 	max-width:1170px;
@@ -127,7 +123,6 @@ input.bcRatio {
 	float:left
 }
 input.constant {
-	disabled:disabled;
 	background-color:lightgrey
 }
 input.duplicate {
@@ -136,6 +131,19 @@ input.duplicate {
 }
 li.metricsFactor {
 	padding-bottom:3px
+}
+li.researchList {
+	margin:0px;
+	padding:0px;
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	font-style:italic;
+	color:#969696
+}
+li.impactCategory {
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
+	font-size:18px;
+	color:black
 }
 hr.section {
 	max-width:1170px;
@@ -168,11 +176,18 @@ tr.altMetricsRow {
 	border:0px
 }
 td.metricsFactor {
-	width:75%;
+	width:85%;
 	
 }
 td.metricsField {
-	width:25%
+	width:15%
+}
+a.quicknav {
+	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:rgb(0,89,143);
+	text-decoration:underline;
+	display:inline-block
 }
 input {
 	margin:5px;
@@ -180,23 +195,6 @@ input {
 	width:100%;
 	border-radius:5px;
 	border-width:1px;
-	background-color:rgb(251,251,251)
-}
-#sidebarWrapper {
-	left:1530px;
-	top:1500px;
-	position:absolute;
-	margin-left:35px;
-	width:400px
-}
-#sidebar {
-	position:absolute;
-	top:0;
-	background-color:rgb(189,231,37);
-	-moz-border-radius:15px;
-	border-radius: 15px
-}
-#sidebar.fixed {
-	position:fixed;
-	top:400px
+	background-color:rgb(251,251,251);
+	text-align:right;
 }

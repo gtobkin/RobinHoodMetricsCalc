@@ -43,6 +43,16 @@ function updateBCRatio() {
 		$("#bcRatioDisplay").text(Math.round(bcRatio) + ":1");
 	}
 };
+
 $(function() {
 	$('a[rel=tipsy]').tipsy({fade: true, gravity: 'n'});
 });
+
+$("a.quicknav").click(function(){
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 750);
+    return false;
+});
+
+//$("input.duplicate").disableInput();
