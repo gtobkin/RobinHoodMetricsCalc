@@ -18,6 +18,9 @@
  * font-family:AlternateGotNo2,'Arial Narrow','Helvetica Narrow','Ubuntu Condensed',
  * 'Liberation Sans Narrow',Arial,'Helvetica Neue',Helvetica,Geneva,sans-serif
  */
+img.charitySelector {
+	cursor:pointer;
+}
 p.headline {
 	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	font-size:42px;
@@ -177,7 +180,6 @@ tr.altMetricsRow {
 }
 td.metricsFactor {
 	width:85%;
-	
 }
 td.metricsField {
 	width:15%
@@ -190,6 +192,8 @@ a.quicknav {
 	display:inline-block
 }
 input {
+	font-family: Verdana,Arial,sans-serif;
+    font-size: 1em;
 	margin:5px;
 	height:20px;
 	width:100%;

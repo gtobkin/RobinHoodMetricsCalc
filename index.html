@@ -29,12 +29,12 @@
     	
     	<img src="images/header.png" style="margin:auto;display:block">
 	  	
-	  	<div id="intro" style="background-image:url('images/hero.png');width:1120px;height:400px;margin-left:auto;margin-right:auto;padding:25px">
+	  	<div id="intro" style="background-image:url('images/hero_trimmed.png');width:1120px;height:325px;margin-left:auto;margin-right:auto;padding:25px">
 	  		<div style="float:right">
 	  			<p class="headline" style="color:white;font-size:36px;margin-top:10px">
-	  				WELCOME TO THE ROBIN
+	  				WELCOME TO THE ROBIN HOOD
 	  				<br>
-	  				HOOD METRICS CALCULATOR!
+	  				METRICS CALCULATOR!
 	  			</p>
   				<p class="body" style="max-width:500px;color:white;margin-left:0px">
 	        		At Robin Hood, we have a unique approach to fighting poverty. Using our research-driven metrics, we’re
@@ -50,13 +50,13 @@
 	  	
 	  	<table border=0 style="border-spacing:25px;margin:0px auto 0px auto">
 	  		<td>
-	  			<img id="img_MNACC" src="images/job-training.png">
+	  			<img id="img_MNACC" src="images/job-training.png" class="charitySelector">
 	  		</td>
 	  		<td>
-	  			<img id="img_WA" src="images/high-school.png">
+	  			<img id="img_WA" src="images/high-school.png" class="charitySelector">
 	  		</td>
 	  		<td>
-	  			<img id="img_FBB" src="images/food-security.png">
+	  			<img id="img_FBB" src="images/food-security.png" class="charitySelector">
 	  		</td>
 	  	</table>
 
@@ -65,9 +65,9 @@
 			<a id="MNACC_calculator"></a>
 			
 			<div id="header_MNACC" style="width:1170px;margin:auto">
-				<table border=0 style="border-spacing:25px">
+				<table border=0 style="border-spacing:10px">
 					<tr>
-						<td style="width:150px;background-color:rgb(237,235,228);padding:10px">
+						<td rowspan=2 style="width:150px;background-color:rgb(237,235,228);padding:10px">
 							<span class="body" style="color:black">
 								Navigation:
 								</span>
@@ -94,33 +94,27 @@
 								</li>
 							</ul>
 						</td>
-						<td style="width:1020px;background-color:rgb(186,228,35);padding:10px">
-							<p class="body" style="text-align:center;color:black;font-size:18px">
+						<td style="width:1020px;padding:0px">
+							<p class="body" style="text-align:center;color:black;font-size:18px;margin:0px">
 				    			Here's a hypothetical charity representative of our Job Training portfolio.
 				    			<br>
-				    			For every <span class="headline" style="vertical-align:middle">$1</span> in funding, it returns
-				    			<span class="headline" style="vertical-align:middle">$20</span> in improved living conditions for New York's poor.
+				    			For every <span class="headline" style="vertical-align:middle;margin:0px">$1</span> in funding, it returns
+				    			<span id="MNACC_altBCRatio" class="headline" style="vertical-align:middle;margin:0px">$20</span> in improved living conditions for New York's poor.
 				    		</p>
-				    		<table border=0 style="width:100%">
+						</td>
+					</tr>
+					<tr>
+						<td style="width:1020px;background-color:rgb(186,228,35);padding:10px">
+							<table border=0 style="width:100%">
 				    			<tr>
-				    				<td style="width:20%;padding:0px 25px">
+				    				<td style="width:50%;padding:0px 25px">
 				    					<p class="headline" style="margin:0px">
-				    						BENEFIT:
+				    						BENEFIT: <span id="MNACC_benefit">$123,456</span>
 				    					</p>
 				    				</td>
-				    				<td style="width:30%;text-align:right;padding:0px 25px">
-				    					<p id="MNACC_benefit" class="headline" style="margin:0px">
-				    						$123,456
-				    					</p>
-				    				</td>
-				    				<td style="width:30%;padding:0px 25px">
+				    				<td style="width:50%;padding:0px 25px">
 				    					<p class="headline" style="margin:0px">
-				    						BENEFIT/COST:
-				    					</p>
-				    				</td>
-				    				<td style="width:20%;text-align:right;padding:0px 25px">
-				    					<p class="headline" style="margin:0px">
-				    						<span id="MNACC_bcRatio">20</span>:1
+				    						BENEFIT/COST: <span id="MNACC_bcRatio">20</span>:1
 				    					</p>
 				    				</td>
 				    			</tr>
@@ -149,7 +143,7 @@
         				<tr class="altMetricsRow">
         					<td class="metricsFactor">
         						<p class="body">
-        							What percentage of those graduate and find a job, but stay for less than a year?
+        							How long does the training last (in months)?
         						</p>
         					</td>
         					<td class="metricsField">
@@ -159,31 +153,41 @@
         				<tr class="metricsRow">
         					<td class="metricsFactor">
         						<p class="body">
+        							What percentage of those graduate and find a job, but stay for less than a year?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="text" id="MNACC_01_03" class="impact">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
         							Of those, how long do they keep the job (in months), on average?
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_01_03" class="impact constant">
+        						<input type="text" id="MNACC_01_04" class="impact constant">
         					</td>
         				</tr>
-        				<tr class="altMetricsRow">
+        				<tr class="metricsRow">
         					<td class="metricsFactor">
         						<p class="body">
         							What's the participants' average earnings after training?
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_01_04" class="impact">
+        						<input type="text" id="MNACC_01_05" class="impact">
         					</td>
         				</tr>
-        				<tr class="metricsRow">
+        				<tr class="altMetricsRow">
         					<td class="metricsFactor">
         						<p class="body">
         							What was the participants' average earnings before training?
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_01_05" class="impact">
+        						<input type="text" id="MNACC_01_06" class="impact">
         					</td>
         				</tr>
         			</table>
@@ -206,11 +210,31 @@
         				<tr class="altMetricsRow">
         					<td class="metricsFactor">
         						<p class="body">
+        							How long does the training last (in months)?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="text" id="MNACC_02_02" class="impact duplicate">
+        					</td>
+        				</tr>
+        				<tr class="metricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
         							What percentage of those graduate, find a job, and stay for at least a year?
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_02_02" class="impact">
+        						<input type="text" id="MNACC_02_03" class="impact">
+        					</td>
+        				</tr>
+        				<tr class="altMetricsRow">
+        					<td class="metricsFactor">
+        						<p class="body">
+        							Of those that find a job, how many years do they stay in the field, on average?
+        						</p>
+        					</td>
+        					<td class="metricsField">
+        						<input type="text" id="MNACC_02_04" class="impact">
         					</td>
         				</tr>
         				<tr class="metricsRow">
@@ -220,7 +244,7 @@
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_02_03" class="imapct duplicate">
+        						<input type="text" id="MNACC_02_05" class="imapct duplicate">
         					</td>
         				</tr>
         				<tr class="altMetricsRow">
@@ -230,7 +254,7 @@
         						</p>
         					</td>
         					<td class="metricsField">
-        						<input type="text" id="MNACC_02_04" class="impact duplicate">
+        						<input type="text" id="MNACC_02_06" class="impact duplicate">
         					</td>
         				</tr>
         			</table>
@@ -332,7 +356,7 @@
 	    	</div>
 	    	<div id="metricsAccordionFollowup" class="topLevel">
 		    	<p>
-	    			<span id="MNACC_resetDefaults" class="hint" style="font-style:italic">Reset to defaults</span>
+	    			<span id="MNACC_resetDefaults" class="hint" style="font-style:italic;cursor:pointer">Reset to defaults</span>
 	    		</p>
 	    		<p>
 	    			<span id="MNACC_constantFactorHint" class="hint" title=
@@ -426,7 +450,7 @@
 	        	<ol>
 	        		<li class="impactCategory">
 	        			<p>
-	        				Short-term wage gains: Impact = P.D.V. of ( A * B% * [ $C - $D ] )
+	        				Short-term wage gains: Impact = P.D.V. of ( A * B% * C * [ $D - $E ] )
 	        			</p>
 	      		 		<p class="tinyBody impactFactors">
 	     		   			A: number of program participants
@@ -480,6 +504,45 @@
 	        		in the future.">
 	        		What's a "P.D.V."?
 	        	</span>
+	        	<br>
+	        	<span id="MNACC_pdvSettingsToggle" class="hint" style="cursor:pointer">
+	        		I know what I'm doing and want to change the P.D.V. factors.
+	        	</span>
+	        	<div id="MNACC_pdvFactors" class="altTopLevel" style="display:none">
+	        		<p class="body">
+	        			Most of the terms needed for bringing the social benefits forward to the present time show up in the metrics accordion above,
+	        			with descriptions like "How long do job trainees spend in training before getting a job?" and "For how many years do
+	        			the health benefits of vaccination last?"
+	        			<br>
+	        			<br>
+	        			One more advanced factor we wanted to give you control over is the
+	        			<a href="http://en.wikipedia.org/wiki/Social_discount_rate" target=_blank>social discount rate</a>. It's analogous to the
+	        			discount rate used in financial modeling, and there's a lot of interesting debate as to what an appropriate value is.
+	        			Developed countries tend to use lower values (3%-7%) than developing countries (8%-15%).
+	        			<br>
+	        			<br>
+	        			For the purposes of this calculator, we used a default value of 5%. You're welcome to change it:
+	        		</p>
+	        		<table border=0 style="border-spacing:0px;width:50%">
+	        			<tr class="altMetricsRow">
+	        				<td class="metricsFactor" style="width:80%">
+        						<p class="body">
+        							What's the effective social discount rate (as a percentage)?
+        						</p>
+        					</td>
+        					<td class="metricsField" style="width:20%">
+        						<input type="text" id="MNACC_sdr" class="impact">
+        					</td>
+	        			</tr>
+	        		</table>
+	        	</div>
+	        	
+	        	<script>
+	        		$("#MNACC_pdvSettingsToggle").click(function() {
+	        			$("#MNACC_pdvFactors").slideToggle();
+	        		});
+	        	</script>
+	        	
 	        </div>
 	        
 	        <hr class="section">
@@ -647,11 +710,25 @@
 		<img src="images/footer.png" style="margin:auto;display:block">
  
 		<!-- common.js contains functionality needed across all charities, e.g. input field parsing and currency formatting -->
-		<script src="javascripts/common.js" type="text/javascript"></script>
+		<script src="javascripts/init.js" type="text/javascript"></script>
 		
     	<script>
     		$('#img_MNACC').click(function() {
-    			$('#MNACC').slideToggle();
+    			if ($("#MNACC").css('display')=='block') {
+    				$('#MNACC').slideToggle();
+			    } else {
+			    	if ($('#WA').css('display')=='block') {
+			    		$('#WA').slideToggle();
+			    	}
+			    	if ($('#FB').css('display')=='block') {
+			    		$('#FB').slideToggle();
+			    	}
+    				$('#MNACC').slideToggle();
+	    			$('html, body').animate({
+				        scrollTop: $("#MNACC").offset().top
+				    }, 750);
+				    $.getScript("javascripts/mnacc.js");
+	    		}
     		});
     		$('#MNACC_constantFactorHint').tipsy({html:true, gravity:'w'});
     		$('#MNACC_duplicateFactorHint').tipsy({html:true, gravity:'w'});
@@ -659,8 +736,6 @@
     		$('#MNACC_qalyFactorHint').tipsy({html:true, gravity:'w'});
     		$('#MNACC_pdvHint').tipsy({html:true, gravity:'w'});
     	</script>
-	
-		<script type="text/javascript" src="javascripts/mnacc.js"></script>
 		
     </body>
 </html>
