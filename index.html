@@ -56,11 +56,11 @@
 	  			<img id="img_WA" src="images/high-school.png" class="charitySelector">
 	  		</td>
 	  		<td>
-	  			<img id="img_FBB" src="images/food-security.png" class="charitySelector">
+	  			<img id="img_FB" src="images/food-security.png" class="charitySelector">
 	  		</td>
 	  	</table>
 
-		<div id="MNACC" style="margin:0px;padding:0px">
+		<div id="MNACC" style="margin:0px;padding:0px;display:none">
 			
 			<a id="MNACC_calculator"></a>
 			
@@ -173,7 +173,7 @@
         				<tr class="metricsRow">
         					<td class="metricsFactor">
         						<p class="body">
-        							What's the participants' average earnings after training?
+        							What's the participants' average annual earnings after training?
         						</p>
         					</td>
         					<td class="metricsField">
@@ -183,7 +183,7 @@
         				<tr class="altMetricsRow">
         					<td class="metricsFactor">
         						<p class="body">
-        							What was the participants' average earnings before training?
+        							What was the participants' average annual earnings before training?
         						</p>
         					</td>
         					<td class="metricsField">
@@ -240,7 +240,7 @@
         				<tr class="metricsRow">
         					<td class="metricsFactor">
         						<p class="body">
-        							What's the participants' average earnings after training?
+        							What's the participants' average annual earnings after training?
         						</p>
         					</td>
         					<td class="metricsField">
@@ -250,7 +250,7 @@
         				<tr class="altMetricsRow">
         					<td class="metricsFactor">
         						<p class="body">
-        							What was the participants' average earnings before training?
+        							What was the participants' average annual earnings before training?
         						</p>
         					</td>
         					<td class="metricsField">
@@ -387,6 +387,41 @@
 		        		- our proportional funding of the nonprofit's budget.">
 		        		What's the "Robin Hood Factor"?
 		        	</span>
+		        	<br>
+		        	<span id="MNACC_pdvSettingsToggle" class="hint" style="cursor:pointer">
+		        		I know what I'm doing and want to change the P.D.V. factors (see below).
+		        	</span>
+		        	<div id="MNACC_pdvFactors" class="altTopLevel" style="display:none">
+		        		<p class="body">
+		        			Most of the terms needed for bringing the social benefits forward to the present time show up in the metrics accordion above,
+		        			with descriptions like "How long do job trainees spend in training before getting a job?" and "For how many years do
+		        			the health benefits of vaccination last?"
+		        			<br>
+		        			<br>
+		        			One more advanced factor we wanted to give you control over is the
+		        			<a href="http://en.wikipedia.org/wiki/Social_discount_rate" target=_blank>social discount rate</a>. It's analogous to the
+		        			discount rate used in financial modeling, and there's a lot of interesting debate as to what an appropriate value is.
+		        			Developed countries tend to use lower values (3%-7%) than developing countries (8%-15%).
+		        		</p>
+		        		<table border=0 style="border-spacing:0px;width:50%;margin-bottom:10px">
+		        			<tr class="altMetricsRow">
+		        				<td class="metricsFactor" style="width:80%">
+	        						<p class="body">
+	        							What's the effective social discount rate (as a percentage)?
+	        						</p>
+	        					</td>
+	        					<td class="metricsField" style="width:20%">
+	        						<input type="text" id="MNACC_sdr" class="impact">
+	        					</td>
+		        			</tr>
+		        		</table>
+		        	</div>
+		        	
+		        	<script>
+		        		$("#MNACC_pdvSettingsToggle").click(function() {
+		        			$("#MNACC_pdvFactors").slideToggle();
+		        		});
+		        	</script>
 	    		</p>
 	    	</div>
  
@@ -501,47 +536,12 @@
 	        	</ol>
 	        	<span id="MNACC_pdvHint" class="hint" title=
 	        		"P.D.V. stands for &quotpresent discounted value.&quot It's a way to correct for how money now is worth more than money
-	        		in the future.">
+	        		in the future.
+	        		<br>
+	        		<br>
+	        		Using it lets us compare far-off benefits to more immediate ones.">
 	        		What's a "P.D.V."?
 	        	</span>
-	        	<br>
-	        	<span id="MNACC_pdvSettingsToggle" class="hint" style="cursor:pointer">
-	        		I know what I'm doing and want to change the P.D.V. factors.
-	        	</span>
-	        	<div id="MNACC_pdvFactors" class="altTopLevel" style="display:none">
-	        		<p class="body">
-	        			Most of the terms needed for bringing the social benefits forward to the present time show up in the metrics accordion above,
-	        			with descriptions like "How long do job trainees spend in training before getting a job?" and "For how many years do
-	        			the health benefits of vaccination last?"
-	        			<br>
-	        			<br>
-	        			One more advanced factor we wanted to give you control over is the
-	        			<a href="http://en.wikipedia.org/wiki/Social_discount_rate" target=_blank>social discount rate</a>. It's analogous to the
-	        			discount rate used in financial modeling, and there's a lot of interesting debate as to what an appropriate value is.
-	        			Developed countries tend to use lower values (3%-7%) than developing countries (8%-15%).
-	        			<br>
-	        			<br>
-	        			For the purposes of this calculator, we used a default value of 5%. You're welcome to change it:
-	        		</p>
-	        		<table border=0 style="border-spacing:0px;width:50%">
-	        			<tr class="altMetricsRow">
-	        				<td class="metricsFactor" style="width:80%">
-        						<p class="body">
-        							What's the effective social discount rate (as a percentage)?
-        						</p>
-        					</td>
-        					<td class="metricsField" style="width:20%">
-        						<input type="text" id="MNACC_sdr" class="impact">
-        					</td>
-	        			</tr>
-	        		</table>
-	        	</div>
-	        	
-	        	<script>
-	        		$("#MNACC_pdvSettingsToggle").click(function() {
-	        			$("#MNACC_pdvFactors").slideToggle();
-	        		});
-	        	</script>
 	        	
 	        </div>
 	        

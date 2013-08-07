@@ -25,7 +25,7 @@ p.headline {
 	font-family:AltGotNo2, 'Franklin Gothic Medium', 'Franklin Gothic', 'ITC Franklin Gothic', Arial, sans-serif;
 	font-size:42px;
 	color:rgb(0,89,143);
-	margin:0.5em auto
+	margin:0.25em auto 0.5em auto;
 }
 p.tinyHeadline {
 	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
@@ -47,7 +47,7 @@ p.body {
 }
 p.tinyBody {
 	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
-	font-size:14px;
+	font-size:16px;
 	font-style:italic;
 	color:#969696
 }
@@ -89,7 +89,7 @@ div.topLevel {
 }
 div.altTopLevel {
 	max-width:1110px;
-	padding:30px;
+	padding:10px 30px;
 	margin:25px auto;
 	background-color:rgb(237,235,228)
 }

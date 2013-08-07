@@ -46,6 +46,24 @@ $('#MNACC_rhFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_qalyFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_pdvHint').tipsy({html:true, gravity:'w'});
 
+// Annuity-immediate calculator (so payments are at the ENDS of intervals)
+// All inputs are in years, so for PDV of a $1500/year salary increase after 6mo. training,
+// salary paid weekly, annual interest rate of 5%, for ten years, you'd do
+// pdvCalc(0.5, 1500/52, 10*52, 1/12, 0.05)
+function pdvCalc(delay, amount, count, interval, annualSDR) {
+	if (annualSDR == 0) {
+		return amount * count;
+	} else {
+		// compute effective discount rate between payments
+		var intervalSDR = Math.pow(1+annualSDR, interval)-1;
+		// bring the entire annuity forward to the start date
+		var val = amount * (1 - Math.pow((1 + intervalSDR), -1*count)) / intervalSDR;
+		// and now bring that value from the start date forward to the present
+		val = val / Math.pow(1+annualSDR, delay);
+		return val;
+	}
+};
+
 var MNACC_benefit, MNACC_bcRatio, MNACC_funding, MNACC_rhFactor, MNACC_bcRatio, MNACC_sdr,
 	MNACC_subtotal_01, MNACC_subtotal_02, MNACC_subtotal_03;
 
@@ -63,7 +81,7 @@ function resetMNACCDefaults() {
 	
 	$("#MNACC_03_03").val("50%"); // % get health insurance through employer
 	$("#MNACC_03_04").val("10%"); // % health insurance counterfactual
-	$("#MNACC_03_05").val("0.7"); // value of health insurance, in QALY
+	$("#MNACC_03_05").val("0.07"); // value of health insurance, in QALY
 	$("#MNACC_03_06").val("$50,000"); // value of 1 QALY
 	
 	$("#MNACC_funding").val("$100,000");
@@ -102,14 +120,16 @@ function updateMNACCBenefits() {
 	MNACC_sdr = parseField($("#MNACC_sdr").val()); // social discount rate
 	
 	// Compute subtotals by metric; update subtotal displays
-	MNACC_subtotal_01 = values[0] * (values[2] / 100) * (values[3] / 12) * (values[4] - values[5]) * Math.pow(1/(1+(MNACC_sdr/100)), values[1]/12);
-	//MNACC_subtotal_02 = values[0] * (values[6] / 100) * (values[4] - values[5]);
-	MNACC_subtotal_02 = 0;
+	// assumes 4 paychecks/month
+	MNACC_subtotal_01 = values[0]*(values[2]/100) * pdvCalc(values[1]/12, (values[4]-values[5])/48, values[3]*4, 1/48, MNACC_sdr/100);
+	MNACC_subtotal_02 = values[0]*(values[6]/100) * pdvCalc(values[1]/12, (values[4]-values[5])/48, values[7]*48, 1/48, MNACC_sdr/100);
+	MNACC_subtotal_03 = values[0]*(values[6]/100)*((values[8]-values[9])/100) * pdvCalc(values[1]/12, values[10]*values[11], values[7], 1, MNACC_sdr/100);
 	
 	$("#MNACC_subtotal_01").text(formatMoney(MNACC_subtotal_01));
-	//$("#MNACC_subtotal_02").text(formatMoney(MNACC_subtotal_02));
+	$("#MNACC_subtotal_02").text(formatMoney(MNACC_subtotal_02));
+	$("#MNACC_subtotal_03").text(formatMoney(MNACC_subtotal_03));
 	// and finally, update benefit + b/c ratio displays
-	MNACC_benefit = MNACC_subtotal_01 + MNACC_subtotal_02;
+	MNACC_benefit = MNACC_subtotal_01 + MNACC_subtotal_02 + MNACC_subtotal_03;
 	$("#MNACC_benefit").text(formatMoney(MNACC_benefit));
 	updateMNACCBCRatio();
 };
