@@ -23,8 +23,6 @@ function parseField(input) {
 	return parseFloat(input.replace(/[^\d.-]/g, ""));
 };
 
-var benefit;
-
 $(function() {
 	$('a[rel=tipsy]').tipsy({fade: true, gravity: 'n'});
 });
@@ -39,12 +37,29 @@ $("a.quicknav").click(function(){
 // Set duplicate (teal) field inputs to disabled
 $('input.duplicate').prop("disabled", true);
 
+// Initialize each mock charity's metrics accordion UI element
+$("#MNACC_metricsAccordion").accordion({heightStyle:"content"});
+$("#WA_metricsAccordion").accordion({heightStyle:"content"});
+
 // Initialize Tipsy Tooltips across all charities
 $('#MNACC_constantFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_duplicateFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_rhFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_qalyFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_pdvHint').tipsy({html:true, gravity:'w'});
+
+$('#WA_constantFactorHint').tipsy({html:true, gravity:'w'});
+$('#WA_duplicateFactorHint').tipsy({html:true, gravity:'w'});
+$('#WA_rhFactorHint').tipsy({html:true, gravity:'w'});
+$('#WA_qalyFactorHint').tipsy({html:true, gravity:'w'});
+$('#WA_pdvHint').tipsy({html:true, gravity:'w'});
+
+$("#MNACC_pdvSettingsToggle").click(function() {
+	$("#MNACC_pdvFactors").slideToggle();
+});
+$("#WA_pdvSettingsToggle").click(function() {
+	$("#WA_pdvFactors").slideToggle();
+});
 
 // Annuity-immediate calculator (so payments are at the ENDS of intervals)
 // All inputs are in years, so for PDV of a $1500/year salary increase after 6mo. training,
@@ -64,17 +79,18 @@ function pdvCalc(delay, amount, count, interval, annualSDR) {
 	}
 };
 
-$('#img_MNACC').click(function() {
+$('#MNACC_img').click(function() {
 	if ($("#MNACC").css('display')=='block') {
 		$('#MNACC').slideToggle();
+		$('html, body').animate({scrollTop: 0}, 300);
     } else {
     	if ($('#WA').css('display')=='block') {
-    		$('#WA').slideToggle();
+    		$('#WA').toggle();
     	}
     	if ($('#FB').css('display')=='block') {
-    		$('#FB').slideToggle();
+    		$('#FB').toggle();
     	}
-		$('#MNACC').slideToggle();
+		$('#MNACC').toggle();
 		$('html, body').animate({
 	        scrollTop: $("#MNACC").offset().top
 	    }, 750);
@@ -85,6 +101,32 @@ $('#img_MNACC').click(function() {
 		
 		$("input.bcRatio").on('input keyup', function() {
 			updateMNACCBCRatio();
+		});
+	}
+});
+
+$('#WA_img').click(function() {
+	if ($("#WA").css('display')=='block') {
+		$('#WA').slideToggle();
+		$('html, body').animate({scrollTop: 0}, 300);
+    } else {
+    	if ($('#MNACC').css('display')=='block') {
+    		$('#MNACC').toggle();
+    	}
+    	if ($('#FB').css('display')=='block') {
+    		$('#FB').toggle();
+    	}
+		$('#WA').toggle();
+		$('html, body').animate({
+	        scrollTop: $("#WA").offset().top
+	    }, 750);
+	    // Start monitoring WA fields; stop monitoring other ones, to save calculations
+		$("input.impact").on('input keyup', function() {
+			updateWABenefits(); // this will also, indirectly, call updateBCRatio() for us
+		});
+		
+		$("input.bcRatio").on('input keyup', function() {
+			updateWABCRatio();
 		});
 	}
 });
