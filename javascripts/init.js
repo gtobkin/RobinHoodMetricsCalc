@@ -64,6 +64,31 @@ function pdvCalc(delay, amount, count, interval, annualSDR) {
 	}
 };
 
+$('#img_MNACC').click(function() {
+	if ($("#MNACC").css('display')=='block') {
+		$('#MNACC').slideToggle();
+    } else {
+    	if ($('#WA').css('display')=='block') {
+    		$('#WA').slideToggle();
+    	}
+    	if ($('#FB').css('display')=='block') {
+    		$('#FB').slideToggle();
+    	}
+		$('#MNACC').slideToggle();
+		$('html, body').animate({
+	        scrollTop: $("#MNACC").offset().top
+	    }, 750);
+	    // Start monitoring MNACC fields; stop monitoring other ones, to save calculations
+		$("input.impact").on('input keyup', function() {
+			updateMNACCBenefits(); // this will also, indirectly, call updateBCRatio() for us
+		});
+		
+		$("input.bcRatio").on('input keyup', function() {
+			updateMNACCBCRatio();
+		});
+	}
+});
+
 var MNACC_benefit, MNACC_bcRatio, MNACC_funding, MNACC_rhFactor, MNACC_bcRatio, MNACC_sdr,
 	MNACC_subtotal_01, MNACC_subtotal_02, MNACC_subtotal_03;
 
