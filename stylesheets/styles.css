@@ -75,14 +75,6 @@ span.body {
 	font-size:16px;
 	color:#969696;
 }
-span.quicknav {
-	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
-	font-size:16px;
-	color:blue;
-	text-decoration:underline;
-	display:inline-block;
-	cursor:pointer;
-}
 div.topLevel {
 	max-width:1170px;
 	margin:25px auto
@@ -186,10 +178,9 @@ td.metricsField {
 }
 a.quicknav {
 	font-family:MyriadPro, Verdana, Arial, Helvetica, sans-serif;
-	font-size:16px;
+	font-size:20px;
 	color:rgb(0,89,143);
 	text-decoration:underline;
-	display:inline-block
 }
 input {
 	font-family: Verdana,Arial,sans-serif;

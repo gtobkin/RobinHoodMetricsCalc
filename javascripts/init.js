@@ -94,11 +94,14 @@ $('#MNACC_img').click(function() {
 		$('html, body').animate({
 	        scrollTop: $("#MNACC").offset().top
 	    }, 750);
+	    
 	    // Start monitoring MNACC fields; stop monitoring other ones, to save calculations
+	    $("input.impact").off('input keyup');
 		$("input.impact").on('input keyup', function() {
 			updateMNACCBenefits(); // this will also, indirectly, call updateBCRatio() for us
 		});
 		
+		$("input.bcRatio").off('input keyup');
 		$("input.bcRatio").on('input keyup', function() {
 			updateMNACCBCRatio();
 		});
@@ -120,11 +123,14 @@ $('#WA_img').click(function() {
 		$('html, body').animate({
 	        scrollTop: $("#WA").offset().top
 	    }, 750);
+	    
 	    // Start monitoring WA fields; stop monitoring other ones, to save calculations
+	    $("input.impact").off('input keyup');
 		$("input.impact").on('input keyup', function() {
 			updateWABenefits(); // this will also, indirectly, call updateBCRatio() for us
 		});
 		
+		$("input.bcRatio").off('input keyup');
 		$("input.bcRatio").on('input keyup', function() {
 			updateWABCRatio();
 		});

@@ -29,7 +29,7 @@
     	
     	<img src="images/header.png" style="margin:auto;display:block">
 	  	
-	  	<div id="intro" style="background-image:url('images/hero_trimmed.png');width:1120px;height:325px;margin-left:auto;margin-right:auto;padding:25px">
+	  	<div id="intro" style="background-image:url('images/hero_trimmed.png');width:1120px;height:275px;margin-left:auto;margin-right:auto;padding:25px">
 	  		<div style="float:right">
 	  			<p class="headline" style="color:white;font-size:36px;margin-top:10px">
 	  				WELCOME TO THE ROBIN HOOD
@@ -38,15 +38,21 @@
 	  			</p>
   				<p class="body" style="max-width:500px;color:white;margin-left:0px">
 	        		At Robin Hood, we have a unique approach to fighting poverty. Using our research-driven metrics, we’re
-	        		able to judge the social impact of a given charity on impoverished New Yorkers and direct funding to where
+	        		able to judge the social impact of a given charity and direct funding where
 	        		it will do the greatest good.
 	        		<br>
 	        		<br>
-		        	This Metrics Calculator will show you how we evaluate the impact of a poverty-fighting program.
-	    	    	Click on one of the impact areas below to get started.
+		        	This Metrics Calculator will walk you through how we evaluate the impact of a poverty-fighting program.
+	    	    	The resulting benefit/cost ratio is a big part - but only a part - of our decision to fund a nonprofit.
     			</p>
 	  		</div>
 	  	</div>
+	  	
+	  	<div style="margin-left:auto;margin-right:auto;margin-top:25px;width:1120px;">
+	        <p class="headline" style="margin-bottom:0px">
+	        	PICK A PROGRAM:
+	        </p>
+       </div>
 	  	
 	  	<table border=0 style="border-spacing:25px;margin:0px auto 0px auto">
 	  		<td>
@@ -64,66 +70,66 @@
 			
 			<a id="MNACC_calculator_anchor"></a>
 			
-			<div id="MNACC_header" style="width:1170px;margin:auto">
-				<table border=0 style="border-spacing:10px">
-					<tr>
-						<td rowspan=2 style="width:150px;background-color:rgb(237,235,228);padding:10px">
-							<span class="body" style="color:black">
-								Navigation:
-								</span>
-							<ul style="list-style-type:none">
-								<li>
-									<a id="MNACC_toCalculator" href="#MNACC_calculator_anchor" class="quicknav">
-										Calculator
-									</a>
-								</li>
-								<li>
-									<a id="MNACC_toBackground" href="#MNACC_background_anchor" class="quicknav">
-										Background
-									</a>
-								</li>
-								<li>
-									<a id="MNACC_toFormulas" href="#MNACC_formulas_anchor" class="quicknav">
-										Formulas
-									</a>
-								</li>
-								<li>
-									<a id="MNACC_toResearch" href="#MNACC_research_anchor" class="quicknav">
-										Research
-									</a>
-								</li>
-							</ul>
-						</td>
-						<td style="width:1020px;padding:0px">
-							<p class="body" style="text-align:center;color:black;font-size:18px;margin:0px">
-				    			Here's a hypothetical charity representative of our Job Training portfolio.
-				    			<br>
-				    			For every <span class="headline" style="vertical-align:middle;margin:0px">$1</span> in funding, it returns
-				    			<span id="MNACC_altBCRatio" class="headline" style="vertical-align:middle;margin:0px">$20</span> in improved living conditions for New York's poor.
-				    		</p>
-						</td>
-					</tr>
-					<tr>
-						<td style="width:1020px;background-color:rgb(186,228,35);padding:10px">
-							<table border=0 style="width:100%">
-				    			<tr>
-				    				<td style="width:50%;padding:0px 25px">
-				    					<p class="headline" style="margin:0px">
-				    						BENEFIT: <span id="MNACC_benefit">$123,456</span>
-				    					</p>
-				    				</td>
-				    				<td style="width:50%;padding:0px 25px">
-				    					<p class="headline" style="margin:0px">
-				    						BENEFIT/COST: <span id="MNACC_bcRatio">20</span>:1
-				    					</p>
-				    				</td>
-				    			</tr>
-				    		</table>
-						</td>
-					</tr>
+			<div class="altTopLevel" style="margin-bottom:10px">
+				<table border=0 style="width:100%;border-spacing:0px">
+					<td style="min-width:25%;text-align:center">
+						<a id="MNACC_toCalculator" href="#MNACC_calculator_anchor" class="quicknav">
+							CALCULATOR
+						</a>
+					</td>
+					<td style="min-width:25%;text-align:center">
+						<a id="MNACC_toBackground" href="#MNACC_background_anchor" class="quicknav">
+							BACKGROUND
+						</a>
+					</td>
+					<td style="width:25%;text-align:center">
+						<a id="MNACC_toFormulas" href="#MNACC_formulas_anchor" class="quicknav">
+							FORMULAS
+						</a>
+					</td>
+					<td style="width:25%;text-align:center">
+						<a id="MNACC_toResearch" href="#MNACC_research_anchor" class="quicknav">
+							RESEARCH
+						</a>
+					</td>
 				</table>
 			</div>
-		    
+			
+			<div id="MNACC_header" style="width:1170px;margin:auto">
+				<p class="body" style="text-align:center;color:black;font-size:18px;margin:0px">
+	    			Here's a hypothetical charity representative of our Job Training portfolio.
+	    			<br>
+	    			For every <span class="headline" style="vertical-align:middle;margin:0px">$1</span> in funding, it returns
+	    			<span id="MNACC_altBCRatio" class="headline" style="vertical-align:middle;margin:0px">$20</span> in improved living conditions for New York's poor.
+	    		</p>
+				<table border=0 style="width:100%;background-color:rgb(186,228,35)">
+	    			<tr>
+	    				<td style="width:50%;padding:0px 100px">
+	    					<p class="headline" style="margin:0px">
+	    						BENEFIT: <span id="MNACC_benefit">$123,456</span>
+	    					</p>
+	    				</td>
+	    				<td style="width:50%;padding:0px 100px">
+	    					<p class="headline" style="margin:0px">
+	    						BENEFIT/COST: <span id="MNACC_bcRatio">20</span>:1
+	    					</p>
+	    				</td>
+	    			</tr>
+	    		</table>
+	    		<table border=0 style="width:100%">
+	    			<td style="width:50%">
+	    				<p class="tinyHeadline" style="margin:10px">
+	    					Click a header to edit the associated metric:
+	    				</p>
+	    			</td>
+	    			<td style="width:50%;text-align:right">
+				    	<p>
+			    			<span id="MNACC_resetDefaults" class="hint" style="cursor:pointer;font-size:20px">RESET ALL METRICS TO DEFAULTS</span>
+			    		</p>
+	    			</td>
+	    		</table>
+			</div>
+			
 	    	<div id="MNACC_metricsAccordion" style="margin:auto;max-width:1170px">
 	    		<h3>
 	    			1. Short-term wage gains (<span id="MNACC_subtotal_01" class="metricsSubtotal">$123,456</span>)
@@ -355,9 +361,6 @@
 	    		</div>
 	    	</div>
 	    	<div id="MNACC_metricsAccordionFollowup" class="topLevel">
-		    	<p>
-	    			<span id="MNACC_resetDefaults" class="hint" style="font-style:italic;cursor:pointer">Reset to defaults</span>
-	    		</p>
 	    		<p>
 	    			<span id="MNACC_constantFactorHint" class="hint" title=
 	        		"These factors are usually constant across a portfolio. For example, we treat a two-bedroom apartment
