@@ -4,13 +4,15 @@
  * This .js is only executed once (on page load).
  */
 
-$(document).ready(function() {
-	
+$(document).ready(function() {	
 });
 
+// This function was quickly changed to skip decimals + only report three significant figures.
+// Could likely be truncated+optimized.
 function formatMoney(amount, decPlaces, thouSeparator, decSeparator) {
-	var n = amount,
-    decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+	var n = amount.toPrecision(3);
+	decPlaces = 0;
+    // decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
     decSeparator = decSeparator == undefined ? "." : decSeparator,
     thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
     sign = n < 0 ? "-" : "",
@@ -41,24 +43,91 @@ $('input.duplicate').prop("disabled", true);
 $("#MNACC_metricsAccordion").accordion({heightStyle:"content"});
 $("#WA_metricsAccordion").accordion({heightStyle:"content"});
 
+/*
 // Initialize Tipsy Tooltips across all charities
 $('#MNACC_constantFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_duplicateFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_rhFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_qalyFactorHint').tipsy({html:true, gravity:'w'});
 $('#MNACC_pdvHint').tipsy({html:true, gravity:'w'});
+*/
 
-$('#WA_constantFactorHint').tipsy({html:true, gravity:'w'});
-$('#WA_duplicateFactorHint').tipsy({html:true, gravity:'w'});
-$('#WA_rhFactorHint').tipsy({html:true, gravity:'w'});
-$('#WA_qalyFactorHint').tipsy({html:true, gravity:'w'});
-$('#WA_pdvHint').tipsy({html:true, gravity:'w'});
-
+$("#MNACC_constantFactorHint").click(function() {
+	$("#MNACC_constantFactorHintAnswer").slideToggle();
+	$("#MNACC_duplicateFactorHintAnswer").slideUp();
+	$("#MNACC_qalyFactorHintAnswer").slideUp();
+	$("#MNACC_rhFactorHintAnswer").slideUp();
+	$("#MNACC_pdvSettingsToggleAnswer").slideUp();
+});
+$("#MNACC_duplicateFactorHint").click(function() {
+	$("#MNACC_constantFactorHintAnswer").slideUp();
+	$("#MNACC_duplicateFactorHintAnswer").slideToggle();
+	$("#MNACC_qalyFactorHintAnswer").slideUp();
+	$("#MNACC_rhFactorHintAnswer").slideUp();
+	$("#MNACC_pdvSettingsToggleAnswer").slideUp();
+});
+$("#MNACC_qalyFactorHint").click(function() {
+	$("#MNACC_constantFactorHintAnswer").slideUp();
+	$("#MNACC_duplicateFactorHintAnswer").slideUp();
+	$("#MNACC_qalyFactorHintAnswer").slideToggle();
+	$("#MNACC_rhFactorHintAnswer").slideUp();
+	$("#MNACC_pdvSettingsToggleAnswer").slideUp();
+});
+$("#MNACC_rhFactorHint").click(function() {
+	$("#MNACC_constantFactorHintAnswer").slideUp();
+	$("#MNACC_duplicateFactorHintAnswer").slideUp();
+	$("#MNACC_qalyFactorHintAnswer").slideUp();
+	$("#MNACC_rhFactorHintAnswer").slideToggle();
+	$("#MNACC_pdvSettingsToggleAnswer").slideUp();
+});
 $("#MNACC_pdvSettingsToggle").click(function() {
-	$("#MNACC_pdvFactors").slideToggle();
+	$("#MNACC_constantFactorHintAnswer").slideUp();
+	$("#MNACC_duplicateFactorHintAnswer").slideUp();
+	$("#MNACC_qalyFactorHintAnswer").slideUp();
+	$("#MNACC_rhFactorHintAnswer").slideUp();
+	$("#MNACC_pdvSettingsToggleAnswer").slideToggle();
+});
+$("#MNACC_pdvHint").click(function() {
+	$("#MNACC_pdvHintAnswer").slideToggle();
+});
+
+$("#WA_constantFactorHint").click(function() {
+	$("#WA_constantFactorHintAnswer").slideToggle();
+	$("#WA_duplicateFactorHintAnswer").slideUp();
+	$("#WA_qalyFactorHintAnswer").slideUp();
+	$("#WA_rhFactorHintAnswer").slideUp();
+	$("#WA_pdvSettingsToggleAnswer").slideUp();
+});
+$("#WA_duplicateFactorHint").click(function() {
+	$("#WA_constantFactorHintAnswer").slideUp();
+	$("#WA_duplicateFactorHintAnswer").slideToggle();
+	$("#WA_qalyFactorHintAnswer").slideUp();
+	$("#WA_rhFactorHintAnswer").slideUp();
+	$("#WA_pdvSettingsToggleAnswer").slideUp();
+});
+$("#WA_qalyFactorHint").click(function() {
+	$("#WA_constantFactorHintAnswer").slideUp();
+	$("#WA_duplicateFactorHintAnswer").slideUp();
+	$("#WA_qalyFactorHintAnswer").slideToggle();
+	$("#WA_rhFactorHintAnswer").slideUp();
+	$("#WA_pdvSettingsToggleAnswer").slideUp();
+});
+$("#WA_rhFactorHint").click(function() {
+	$("#WA_constantFactorHintAnswer").slideUp();
+	$("#WA_duplicateFactorHintAnswer").slideUp();
+	$("#WA_qalyFactorHintAnswer").slideUp();
+	$("#WA_rhFactorHintAnswer").slideToggle();
+	$("#WA_pdvSettingsToggleAnswer").slideUp();
 });
 $("#WA_pdvSettingsToggle").click(function() {
-	$("#WA_pdvFactors").slideToggle();
+	$("#WA_constantFactorHintAnswer").slideUp();
+	$("#WA_duplicateFactorHintAnswer").slideUp();
+	$("#WA_qalyFactorHintAnswer").slideUp();
+	$("#WA_rhFactorHintAnswer").slideUp();
+	$("#WA_pdvSettingsToggleAnswer").slideToggle();
+});
+$("#WA_pdvHint").click(function() {
+	$("#WA_pdvHintAnswer").slideToggle();
 });
 
 // Annuity-immediate calculator (so payments are at the ENDS of intervals)
@@ -225,3 +294,112 @@ $("#MNACC_resetDefaults").click(function() {
 });
 
 resetMNACCDefaults();
+
+var WA_benefit, WA_bcRatio, WA_funding, WA_rhFactor, WA_bcRatio, WA_sdr,
+	WA_subtotal_01, WA_subtotal_02, WA_subtotal_03, WA_subtotal_04;
+
+// Initialize MNACC-specific functions; then, call them, so we prepopulate each charity's derived calculations
+function resetWADefaults() {
+	$("#WA_01_01").val("150"); // # participating 9th graders
+	$("#WA_01_02").val("95%"); // % participants expected to graduate high school
+	$("#WA_01_03").val("50%"); // Counterfactual grad %
+	$("#WA_01_04").val("$22,500"); // Avg annual earnings, HS grad
+	$("#WA_01_05").val("$16,000"); // Avg annual earnings, HS dropout
+	$("#WA_01_06").val("40"); // Expected career duration
+	
+	$("#WA_02_04").val("1.8"); // HS grad health benefit, in QALY
+	$("#WA_02_05").val("$50,000"); // Estimated value of 1 QALY
+	
+	$("#WA_03_01").val("140"); // # participating HS grads
+	$("#WA_03_02").val("50%"); // % expected to get AA
+	$("#WA_03_03").val("40%"); // Counterfactual college enroll %
+	$("#WA_03_04").val("80%"); // Proportion of those that pick two-year
+	$("#WA_03_05").val("75%"); // Proportion of those that get an AA
+	$("#WA_03_06").val("$35,000"); // Avg annual earnings, AA
+	
+	$("#WA_04_02").val("30%"); // % expected to get BA
+	$("#WA_04_04").val("20%"); // Proportion of those that pick four-year
+	$("#WA_04_05").val("50%"); // Proportion of those that get a BA
+	$("#WA_04_06").val("$55,000"); // Avg annual earnings, BA
+	
+	$("#WA_funding").val("$2,500,000");
+	$("#WA_rhFactor").val("60%");
+	
+	$("#WA_sdr").val("5%");
+	
+	updateWABenefits(); // we may have just changed field values, so need to update derived values too
+}
+
+function updateWABenefits() {
+	// Copy over duplicate factors
+	$("#WA_02_01").val($("#WA_01_01").val());
+	$("#WA_02_02").val($("#WA_01_02").val());
+	$("#WA_02_03").val($("#WA_01_03").val());
+	$("#WA_03_07").val($("#WA_01_04").val());
+	$("#WA_03_08").val($("#WA_01_06").val());
+	$("#WA_04_01").val($("#WA_03_01").val());
+	$("#WA_04_03").val($("#WA_03_03").val());
+	$("#WA_04_07").val($("#WA_01_04").val());
+	$("#WA_04_08").val($("#WA_01_06").val());
+	// Extract values, possibly stripping nonnumerals+nonperiods
+	var values = new Array();
+	values[0] = parseField($("#WA_01_01").val()); // # 9th graders
+	values[1] = parseField($("#WA_01_02").val()); // % expected to grad.
+	values[2] = parseField($("#WA_01_03").val()); // Counterfactual grad %
+	values[3] = parseField($("#WA_01_04").val()); // HS grad annual earnings
+	values[4] = parseField($("#WA_01_05").val()); // HS dropout annual earnings
+	values[5] = parseField($("#WA_01_06").val()); // Career length
+	
+	values[6] = parseField($("#WA_02_04").val()); // HS grad health benefit in QALY
+	values[7] = parseField($("#WA_02_05").val()); // Value of 1 QALY
+	
+	values[8] = parseField($("#WA_03_01").val()); // # HS grads
+	values[9] = parseField($("#WA_03_02").val()); // % expected to get AA
+	values[10] = parseField($("#WA_03_03").val()); // Counterfactual college enrollment %
+	values[11] = parseField($("#WA_03_04").val()); // Proportion of above that's 2-year
+	values[12] = parseField($("#WA_03_05").val()); // Counterfactual %, successful AA attainment
+	values[13] = parseField($("#WA_03_06").val()); // Annual earnings, AA
+	
+	
+	values[14] = parseField($("#WA_04_02").val()); // % expected to get BA
+	values[15] = parseField($("#WA_04_04").val()); // Proportion of counterfactual college enrollments that's 4-year
+	values[16] = parseField($("#WA_04_05").val()); // Counterfactual %, successful BA attainment
+	values[17] = parseField($("#WA_04_06").val()); // Annual earnings, BA
+	
+	WA_sdr = parseField($("#WA_sdr").val()); // social discount rate
+	
+	// Compute subtotals by metric; update subtotal displays
+	// assumes 4 paychecks/month
+	WA_subtotal_01 = values[0]*((values[1]-values[2])/100)*pdvCalc(4,(values[3]-values[4]), values[5], 1, WA_sdr/100);
+	WA_subtotal_02 = values[0]*((values[1]-values[2])/100)*values[6]*values[7];
+	WA_subtotal_03 = values[8]*(values[9]/100-(values[10]/100)*(values[11]/100)*values[12]/100)*pdvCalc(4,(values[13]-values[3]), values[5], 1, WA_sdr/100);
+	WA_subtotal_04 = values[8]*(values[14]/100-(values[10]/100)*(values[15]/100)*values[16]/100)*pdvCalc(4,(values[17]-values[3]), values[5], 1, WA_sdr/100);
+	
+	$("#WA_subtotal_01").text(formatMoney(WA_subtotal_01));
+	$("#WA_subtotal_02").text(formatMoney(WA_subtotal_02));
+	$("#WA_subtotal_03").text(formatMoney(WA_subtotal_03));
+	$("#WA_subtotal_04").text(formatMoney(WA_subtotal_04));
+	// and finally, update benefit + b/c ratio displays
+	WA_benefit = WA_subtotal_01 + WA_subtotal_02 + WA_subtotal_03 + WA_subtotal_04;
+	$("#WA_benefit").text(formatMoney(WA_benefit));
+	updateWABCRatio();
+};
+
+function updateWABCRatio() {
+	WA_funding = parseField($("#WA_funding").val());
+	WA_rhFactor = parseField($("#WA_rhFactor").val());
+	WA_bcRatio = WA_benefit * (WA_rhFactor / 100) / WA_funding;
+	if (isNaN(Math.round(WA_bcRatio))) {
+		$("#WA_bcRatio").text("0");
+		$("#WA_altBCRatio").text("$0");
+	} else {
+		$("#WA_bcRatio").text(Math.round(WA_bcRatio));
+		$("#WA_altBCRatio").text("$" + Math.round(WA_bcRatio));
+	}
+};
+
+$("#WA_resetDefaults").click(function() {
+	resetWADefaults();
+});
+
+resetWADefaults();
